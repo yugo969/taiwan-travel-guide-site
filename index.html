@@ -130,20 +130,17 @@
         </div>
       </section>
     </main>
-    <dialog class="prep-dialog" id="prep-dialog" aria-labelledby="prep-title">
+    <dialog class="prep-dialog" id="prep-dialog" aria-label="台湾旅行の準備">
       <div class="prep-dialog-inner">
         <header class="prep-dialog-header">
-          <div><p class="eyebrow">BEFORE THE TRIP</p><h2 id="prep-title">出発前の準備</h2></div>
+          <div class="prep-tab-list" role="tablist" aria-label="準備の表示切替">
+            <button class="prep-tab is-active" id="prep-tab-board" type="button" role="tab" aria-selected="true" aria-controls="prep-panel-board" tabindex="0" data-prep-tab="board">準備ボード</button>
+            <button class="prep-tab" id="prep-tab-check" type="button" role="tab" aria-selected="false" aria-controls="prep-panel-check" tabindex="-1" data-prep-tab="check">出発前チェック</button>
+          </div>
           <button class="prep-close" type="button" data-prep-close>閉じる</button>
         </header>
-        <div class="prep-tab-list" role="tablist" aria-label="準備の表示切替">
-          <button class="prep-tab is-active" id="prep-tab-board" type="button" role="tab" aria-selected="true" aria-controls="prep-panel-board" tabindex="0" data-prep-tab="board">準備ボード</button>
-          <button class="prep-tab" id="prep-tab-check" type="button" role="tab" aria-selected="false" aria-controls="prep-panel-check" tabindex="-1" data-prep-tab="check">出発前チェック</button>
-        </div>
         <section class="prep-panel prep-board-panel" id="prep-panel-board" role="tabpanel" aria-labelledby="prep-tab-board" tabindex="0">
-          <p class="prep-panel-note">期限・進捗はタスクスケジュールの「台湾旅行の準備」と共有しています。</p>
-          <iframe title="台湾旅行の準備ボード" data-prep-board-src="https://yugo969.github.io/planning-board-site/design-preview-x/?group=%E5%8F%B0%E6%B9%BE%E6%97%85%E8%A1%8C%E3%81%AE%E6%BA%96%E5%82%99" loading="lazy"></iframe>
-          <p class="prep-panel-link"><a href="https://yugo969.github.io/planning-board-site/design-preview-x/?group=%E5%8F%B0%E6%B9%BE%E6%97%85%E8%A1%8C%E3%81%AE%E6%BA%96%E5%82%99" target="_blank" rel="noreferrer noopener">タスクスケジュールを別画面で開く ↗</a></p>
+          <iframe title="台湾旅行の準備ボード" data-prep-board-src="https://yugo969.github.io/planning-board-site/design-preview/?group=%E5%8F%B0%E6%B9%BE%E6%97%85%E8%A1%8C%E3%81%AE%E6%BA%96%E5%82%99&amp;theme=taiwan" loading="lazy"></iframe>
         </section>
         <section class="prep-panel prep-check-panel" id="prep-panel-check" role="tabpanel" aria-labelledby="prep-tab-check" tabindex="0" hidden>
           <div class="prep-progress-row"><strong>抜け漏れチェック</strong><span data-prep-progress aria-live="polite">0 / 9 完了</span></div>
