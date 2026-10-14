@@ -26,6 +26,78 @@ window.addEventListener("scroll", () => {
   if (window.scrollY < 80) setCurrent(null);
 }, { passive: true });
 
+const prepDialog = document.getElementById("prep-dialog");
+const prepOpenButton = document.getElementById("prep-open");
+const prepTabs = [...document.querySelectorAll("[data-prep-tab]")];
+const prepPanels = [...document.querySelectorAll("[role='tabpanel'][id^='prep-panel-']")];
+const prepBoardFrame = prepDialog?.querySelector("iframe[data-prep-board-src]");
+const loadPrepBoard = () => {
+  if (prepBoardFrame && !prepBoardFrame.hasAttribute("src")) {
+    prepBoardFrame.setAttribute("src", prepBoardFrame.dataset.prepBoardSrc);
+  }
+};
+const selectPrepTab = (tab) => {
+  prepTabs.forEach((button) => {
+    const selected = button === tab;
+    button.classList.toggle("is-active", selected);
+    button.setAttribute("aria-selected", String(selected));
+    button.tabIndex = selected ? 0 : -1;
+  });
+  prepPanels.forEach((panel) => {
+    panel.hidden = panel.id !== tab.getAttribute("aria-controls");
+  });
+  if (tab.dataset.prepTab === "board") loadPrepBoard();
+};
+
+prepOpenButton?.addEventListener("click", () => {
+  prepDialog?.showModal();
+  loadPrepBoard();
+});
+prepDialog?.querySelector("[data-prep-close]")?.addEventListener("click", () => prepDialog.close());
+prepDialog?.addEventListener("click", (event) => {
+  if (event.target === prepDialog) prepDialog.close();
+});
+prepTabs.forEach((tab) => tab.addEventListener("click", () => selectPrepTab(tab)));
+prepDialog?.querySelector("[role='tablist']")?.addEventListener("keydown", (event) => {
+  if (!["ArrowRight", "ArrowLeft", "Home", "End"].includes(event.key)) return;
+  event.preventDefault();
+  const currentIndex = prepTabs.indexOf(document.activeElement);
+  const nextIndex = event.key === "Home" ? 0 : event.key === "End" ? prepTabs.length - 1 : (currentIndex + (event.key === "ArrowRight" ? 1 : -1) + prepTabs.length) % prepTabs.length;
+  prepTabs[nextIndex]?.focus();
+  if (prepTabs[nextIndex]) selectPrepTab(prepTabs[nextIndex]);
+});
+prepDialog?.querySelectorAll("[data-prep-close-link]").forEach((link) => link.addEventListener("click", () => prepDialog.close()));
+
+const prepChecks = [...document.querySelectorAll("[data-prep-check]")];
+const prepProgressText = document.querySelector("[data-prep-progress]");
+const prepProgressBar = document.querySelector("[data-prep-progress-bar]");
+const prepCheckStorageKey = "taiwan-prep-checks-2026";
+let savedPrepChecks = {};
+try {
+  savedPrepChecks = JSON.parse(localStorage.getItem(prepCheckStorageKey) || "{}");
+} catch {
+  savedPrepChecks = {};
+}
+const updatePrepProgress = () => {
+  const completed = prepChecks.filter((checkbox) => checkbox.checked).length;
+  if (prepProgressText) prepProgressText.textContent = `${completed} / ${prepChecks.length} 確認`;
+  if (prepProgressBar) prepProgressBar.value = completed;
+};
+prepChecks.forEach((checkbox) => {
+  checkbox.checked = savedPrepChecks[checkbox.dataset.prepCheck] === true;
+  checkbox.addEventListener("change", () => {
+    savedPrepChecks[checkbox.dataset.prepCheck] = checkbox.checked;
+    try {
+      localStorage.setItem(prepCheckStorageKey, JSON.stringify(savedPrepChecks));
+    } catch {
+      // The checklist remains usable for this page view if storage is unavailable.
+    }
+    updatePrepProgress();
+  });
+});
+if (prepProgressBar) prepProgressBar.max = prepChecks.length;
+updatePrepProgress();
+
 const weatherCities = {
   Taipei: { latitude: 25.033, longitude: 121.5654 },
   Taichung: { latitude: 24.1477, longitude: 120.6736 },
