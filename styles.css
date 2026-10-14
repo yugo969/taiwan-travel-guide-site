@@ -31,6 +31,9 @@ a { color:inherit; }
 .first-card a { display:inline-block; margin-top:8px; color:var(--teal-deep); font-size:.78rem; font-weight:800; text-underline-offset:3px; }
 .forecast-note { margin:8px 0 0; padding:8px 10px; border-left:2px solid var(--gold); background:rgba(213,158,54,.08); color:var(--muted); font-size:.8rem; line-height:1.6; }
 .insurance-facts { margin:9px 0; }
+.inline-text-link { color:var(--teal-deep); font-weight:800; text-decoration-line:underline; text-decoration-thickness:1px; text-underline-offset:3px; }
+.inline-text-link:hover { color:var(--coral); }
+.inline-text-link:focus-visible { border-radius:2px; outline:2px solid var(--gold); outline-offset:2px; }
 .insurance-facts>div { display:grid; grid-template-columns:150px minmax(0,1fr); gap:10px; padding:7px 0; border-top:1px solid var(--line); }
 .insurance-facts dt { color:var(--ink); font-weight:800; }
 .insurance-facts dd { margin:0; }
