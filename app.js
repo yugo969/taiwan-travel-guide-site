@@ -26,11 +26,16 @@ window.addEventListener("scroll", () => {
   if (window.scrollY < 80) setCurrent(null);
 }, { passive: true });
 
-const prepDialog = document.getElementById("prep-dialog");
+const prepView = document.getElementById("prep-view");
+const guideMain = document.getElementById("main");
+const siteFooter = document.querySelector(".site-footer");
+const mobileDock = document.querySelector(".mobile-dock");
+const skipLink = document.querySelector(".skip-link");
 const prepOpenButton = document.getElementById("prep-open");
-const prepTabs = [...document.querySelectorAll("[data-prep-tab]")];
-const prepPanels = [...document.querySelectorAll("[role='tabpanel'][id^='prep-panel-']")];
-const prepBoardFrame = prepDialog?.querySelector("iframe[data-prep-board-src]");
+const prepTabs = [...(prepView?.querySelectorAll("[data-prep-tab]") || [])];
+const prepPanels = [...(prepView?.querySelectorAll("[role='tabpanel'][id^='prep-panel-']") || [])];
+const prepBoardFrame = prepView?.querySelector("iframe[data-prep-board-src]");
+let guideScrollY = 0;
 const loadPrepBoard = () => {
   if (prepBoardFrame && !prepBoardFrame.hasAttribute("src")) {
     prepBoardFrame.setAttribute("src", prepBoardFrame.dataset.prepBoardSrc);
@@ -49,16 +54,42 @@ const selectPrepTab = (tab) => {
   if (tab.dataset.prepTab === "board") loadPrepBoard();
 };
 
-prepOpenButton?.addEventListener("click", () => {
-  prepDialog?.showModal();
-  loadPrepBoard();
-});
-prepDialog?.querySelector("[data-prep-close]")?.addEventListener("click", () => prepDialog.close());
-prepDialog?.addEventListener("click", (event) => {
-  if (event.target === prepDialog) prepDialog.close();
-});
+const setPrepView = (isOpen, { restoreScroll = true } = {}) => {
+  if (!prepView || !guideMain || !prepOpenButton) return;
+  if (isOpen === !prepView.hidden) return;
+
+  if (isOpen) {
+    guideScrollY = window.scrollY;
+    guideMain.hidden = true;
+    if (siteFooter) siteFooter.hidden = true;
+    if (mobileDock) mobileDock.hidden = true;
+    prepView.hidden = false;
+    document.body.classList.add("prep-mode");
+    prepOpenButton.textContent = "ガイドへ戻る";
+    prepOpenButton.setAttribute("aria-expanded", "true");
+    if (skipLink) skipLink.href = "#prep-view";
+    window.scrollTo(0, 0);
+    loadPrepBoard();
+    requestAnimationFrame(() => prepTabs.find((tab) => tab.getAttribute("aria-selected") === "true")?.focus());
+    return;
+  }
+
+  prepView.hidden = true;
+  guideMain.hidden = false;
+  if (siteFooter) siteFooter.hidden = false;
+  if (mobileDock) mobileDock.hidden = false;
+  document.body.classList.remove("prep-mode");
+  prepOpenButton.textContent = "準備";
+  prepOpenButton.setAttribute("aria-expanded", "false");
+  if (skipLink) skipLink.href = "#main";
+  window.scrollTo(0, restoreScroll ? guideScrollY : 0);
+  prepOpenButton.focus();
+};
+
+prepOpenButton?.addEventListener("click", () => setPrepView(prepView?.hidden ?? false));
+prepView?.querySelector("[data-prep-close]")?.addEventListener("click", () => setPrepView(false));
 prepTabs.forEach((tab) => tab.addEventListener("click", () => selectPrepTab(tab)));
-prepDialog?.querySelector("[role='tablist']")?.addEventListener("keydown", (event) => {
+prepView?.querySelector("[role='tablist']")?.addEventListener("keydown", (event) => {
   if (!["ArrowRight", "ArrowLeft", "Home", "End"].includes(event.key)) return;
   event.preventDefault();
   const currentIndex = prepTabs.indexOf(document.activeElement);
@@ -66,7 +97,18 @@ prepDialog?.querySelector("[role='tablist']")?.addEventListener("keydown", (even
   prepTabs[nextIndex]?.focus();
   if (prepTabs[nextIndex]) selectPrepTab(prepTabs[nextIndex]);
 });
-prepDialog?.querySelectorAll("[data-prep-close-link]").forEach((link) => link.addEventListener("click", () => prepDialog.close()));
+prepView?.querySelectorAll("[data-prep-close-link]").forEach((link) => link.addEventListener("click", (event) => {
+  event.preventDefault();
+  const target = document.querySelector(link.getAttribute("href"));
+  setPrepView(false, { restoreScroll: false });
+  if (!target) return;
+  history.replaceState(null, "", link.getAttribute("href"));
+  if (target.tagName === "DETAILS") target.open = true;
+  requestAnimationFrame(() => {
+    target.scrollIntoView({ block: "start" });
+    target.querySelector("summary")?.focus({ preventScroll: true });
+  });
+}));
 
 const prepChecks = [...document.querySelectorAll("[data-prep-check]")];
 const prepProgressText = document.querySelector("[data-prep-progress]");

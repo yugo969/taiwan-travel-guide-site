@@ -13,7 +13,7 @@
     <header class="site-header">
       <a class="site-brand" href="#top" aria-label="台湾旅行の案内の先頭へ">TAIWAN / OCT 2026</a>
       <nav class="site-nav" aria-label="ページ内メニュー">
-        <a class="nav-link" href="#route">ルート</a><a class="nav-link" href="#cities">都市</a><a class="nav-link" href="#move">移動と支払い</a><a class="nav-link" href="#field">現地メモ</a><button class="prep-nav-open" id="prep-open" type="button" aria-haspopup="dialog" aria-controls="prep-dialog">準備</button>
+        <a class="nav-link" href="#route">ルート</a><a class="nav-link" href="#cities">都市</a><a class="nav-link" href="#move">移動と支払い</a><a class="nav-link" href="#field">現地メモ</a><button class="prep-nav-open" id="prep-open" type="button" aria-controls="prep-view" aria-expanded="false">準備</button>
       </nav>
     </header>
 
@@ -130,14 +130,13 @@
         </div>
       </section>
     </main>
-    <dialog class="prep-dialog" id="prep-dialog" aria-label="台湾旅行の準備">
-      <div class="prep-dialog-inner">
-        <header class="prep-dialog-header">
+    <section class="prep-view" id="prep-view" aria-label="台湾旅行の準備" hidden>
+        <header class="prep-view-header">
           <div class="prep-tab-list" role="tablist" aria-label="準備の表示切替">
             <button class="prep-tab is-active" id="prep-tab-board" type="button" role="tab" aria-selected="true" aria-controls="prep-panel-board" tabindex="0" data-prep-tab="board">準備ボード</button>
             <button class="prep-tab" id="prep-tab-check" type="button" role="tab" aria-selected="false" aria-controls="prep-panel-check" tabindex="-1" data-prep-tab="check">出発前チェック</button>
           </div>
-          <button class="prep-close" type="button" data-prep-close>閉じる</button>
+          <button class="prep-close" type="button" data-prep-close>ガイドへ戻る</button>
         </header>
         <section class="prep-panel prep-board-panel" id="prep-panel-board" role="tabpanel" aria-labelledby="prep-tab-board" tabindex="0">
           <iframe title="台湾旅行の準備ボード" data-prep-board-src="https://yugo969.github.io/planning-board-site/design-preview/?group=%E5%8F%B0%E6%B9%BE%E6%97%85%E8%A1%8C%E3%81%AE%E6%BA%96%E5%82%99&amp;theme=taiwan" loading="lazy"></iframe>
@@ -170,8 +169,7 @@
             <ol><li>入国審査はパスポートを提示。TWACの確認メールを見せる必要はありません。</li><li>到着ロビーで通信を設定し、ホテルまでの移動手段を確認します。</li><li>市内移動ではEasyCardを使い、残高が足りなければ駅・コンビニで補充します。</li></ol>
           </section>
         </section>
-      </div>
-    </dialog>
+    </section>
     <footer class="site-footer"><span>TAIWAN / OCT 2026</span><span>帰国便: 10/21（水）台北 → 成田</span></footer>
     <nav class="mobile-dock" aria-label="旅行ガイドのショートカット">
       <a class="nav-link" href="#route"><span>01</span>ルート</a>
