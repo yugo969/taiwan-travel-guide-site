@@ -28,6 +28,7 @@ window.addEventListener("scroll", () => {
 
 const prepView = document.getElementById("prep-view");
 const guideMain = document.getElementById("main");
+const siteHeader = document.querySelector(".site-header");
 const siteFooter = document.querySelector(".site-footer");
 const mobileDock = document.querySelector(".mobile-dock");
 const skipLink = document.querySelector(".skip-link");
@@ -60,12 +61,12 @@ const setPrepView = (isOpen, { restoreScroll = true } = {}) => {
 
   if (isOpen) {
     guideScrollY = window.scrollY;
+    if (siteHeader) siteHeader.hidden = true;
     guideMain.hidden = true;
     if (siteFooter) siteFooter.hidden = true;
     if (mobileDock) mobileDock.hidden = true;
     prepView.hidden = false;
     document.body.classList.add("prep-mode");
-    prepOpenButton.textContent = "ガイドへ戻る";
     prepOpenButton.setAttribute("aria-expanded", "true");
     if (skipLink) skipLink.href = "#prep-view";
     window.scrollTo(0, 0);
@@ -75,11 +76,11 @@ const setPrepView = (isOpen, { restoreScroll = true } = {}) => {
   }
 
   prepView.hidden = true;
+  if (siteHeader) siteHeader.hidden = false;
   guideMain.hidden = false;
   if (siteFooter) siteFooter.hidden = false;
   if (mobileDock) mobileDock.hidden = false;
   document.body.classList.remove("prep-mode");
-  prepOpenButton.textContent = "準備";
   prepOpenButton.setAttribute("aria-expanded", "false");
   if (skipLink) skipLink.href = "#main";
   window.scrollTo(0, restoreScroll ? guideScrollY : 0);
