@@ -35,6 +35,13 @@ a { color:inherit; }
 .inline-text-link { color:var(--teal-deep); font-weight:800; text-decoration-line:underline; text-decoration-thickness:1px; text-underline-offset:3px; }
 .inline-text-link:hover { color:var(--coral); }
 .inline-text-link:focus-visible { border-radius:2px; outline:2px solid var(--gold); outline-offset:2px; }
+.phrase-list { margin:12px 0 0; border-top:1px solid var(--line); }
+.phrase-list>div { display:grid; grid-template-columns:minmax(112px,.42fr) minmax(0,1fr); gap:8px 14px; padding:9px 0; border-bottom:1px solid var(--line); }
+.phrase-list dt { color:var(--ink); font-size:.8rem; font-weight:800; }
+.phrase-list dd { display:grid; min-width:0; gap:3px; margin:0; }
+.phrase-list dd strong { color:var(--teal-deep); font-size:.88rem; line-height:1.55; overflow-wrap:anywhere; }
+.phrase-list dd small { color:var(--muted); font-size:.77rem; line-height:1.55; }
+@media (max-width:680px) { .phrase-list>div { grid-template-columns:1fr; gap:3px; } }
 .insurance-facts>div { display:grid; grid-template-columns:150px minmax(0,1fr); gap:10px; padding:7px 0; border-top:1px solid var(--line); }
 .insurance-facts dt { color:var(--ink); font-weight:800; }
 .insurance-facts dd { margin:0; }
