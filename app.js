@@ -26,6 +26,63 @@ window.addEventListener("scroll", () => {
   if (window.scrollY < 80) setCurrent(null);
 }, { passive: true });
 
+const cityTabList = document.querySelector("[data-city-tabs]");
+const cityTabs = [...(cityTabList?.querySelectorAll("[data-city-tab]") || [])];
+const cityPanels = [...(cityTabList?.nextElementSibling?.querySelectorAll("[data-city-panel]") || [])];
+const cityMobileQuery = window.matchMedia("(max-width: 680px)");
+let selectedCity = "taichung";
+const updateCityTabs = () => {
+  const mobile = cityMobileQuery.matches;
+  const focusedTab = cityTabList?.contains(document.activeElement);
+  const focusedHiddenPanel = mobile && cityPanels.some((panel) => panel.dataset.cityPanel !== selectedCity && panel.contains(document.activeElement));
+  cityTabList?.classList.toggle("is-ready", mobile);
+  if (mobile) cityTabList?.setAttribute("role", "tablist");
+  else cityTabList?.removeAttribute("role");
+  cityTabs.forEach((tab) => {
+    const selected = tab.dataset.cityTab === selectedCity;
+    if (mobile) {
+      tab.setAttribute("role", "tab");
+      tab.setAttribute("aria-selected", String(selected));
+      tab.tabIndex = selected ? 0 : -1;
+    } else {
+      tab.removeAttribute("role");
+      tab.removeAttribute("aria-selected");
+      tab.tabIndex = 0;
+    }
+  });
+  cityPanels.forEach((panel) => {
+    panel.hidden = mobile && panel.dataset.cityPanel !== selectedCity;
+    if (mobile) {
+      panel.setAttribute("role", "tabpanel");
+      panel.setAttribute("aria-labelledby", `city-tab-${panel.dataset.cityPanel}`);
+      panel.tabIndex = 0;
+    } else {
+      panel.removeAttribute("role");
+      panel.removeAttribute("aria-labelledby");
+      panel.tabIndex = -1;
+    }
+  });
+  if (!mobile && focusedTab) cityPanels.find((panel) => panel.dataset.cityPanel === selectedCity)?.focus();
+  if (focusedHiddenPanel) cityTabs.find((tab) => tab.dataset.cityTab === selectedCity)?.focus();
+};
+if (cityTabList && cityTabs.length === cityPanels.length) {
+  cityTabs.forEach((tab) => tab.addEventListener("click", () => {
+    selectedCity = tab.dataset.cityTab;
+    updateCityTabs();
+  }));
+  cityTabList.addEventListener("keydown", (event) => {
+    if (!cityMobileQuery.matches || !["ArrowRight", "ArrowLeft", "Home", "End"].includes(event.key)) return;
+    event.preventDefault();
+    const currentIndex = cityTabs.indexOf(document.activeElement);
+    const nextIndex = event.key === "Home" ? 0 : event.key === "End" ? cityTabs.length - 1 : (currentIndex + (event.key === "ArrowRight" ? 1 : -1) + cityTabs.length) % cityTabs.length;
+    selectedCity = cityTabs[nextIndex].dataset.cityTab;
+    updateCityTabs();
+    cityTabs[nextIndex].focus();
+  });
+  cityMobileQuery.addEventListener("change", updateCityTabs);
+  updateCityTabs();
+}
+
 const prepView = document.getElementById("prep-view");
 const guideMain = document.getElementById("main");
 const siteHeader = document.querySelector(".site-header");

@@ -98,10 +98,15 @@
 
       <section id="cities" class="section cities-section" aria-labelledby="cities-title">
         <div class="section-heading"><h2 id="cities-title">都市を比べる</h2></div>
+        <div class="city-tabs" data-city-tabs aria-label="表示する都市">
+          <button id="city-tab-taipei" type="button" data-city-tab="taipei" aria-controls="city-panel-taipei">台北</button>
+          <button id="city-tab-taichung" type="button" data-city-tab="taichung" aria-controls="city-panel-taichung">台中</button>
+          <button id="city-tab-tainan" type="button" data-city-tab="tainan" aria-controls="city-panel-tainan">台南</button>
+        </div>
         <div class="city-grid">
-          <article class="city-card taipei"><header><span>台北</span></header><p>交通・ホテルの選択肢が多く、帰国前に泊まりやすい。</p><ul><li>宿代は高めになりやすい</li><li>MRTで動きやすい</li><li>雨の日も屋内の行き先が多い</li></ul></article>
-          <article class="city-card taichung"><header><span>台中</span></header><p>今の滞在先。夜市・食堂・カフェを回れる。</p><ul><li>台北から高鉄で約1時間</li><li>市内の移動先はやや離れる</li><li>バス・MRTはEasyCardが便利</li></ul></article>
-          <article class="city-card tainan"><header><span>台南</span></header><p>屋台と古い街並み。高鉄駅から市街地までは別途移動が必要。</p><ul><li>小さな食堂が多い</li><li>台中からの移動時間も確認</li><li>現金とEasyCardを用意</li></ul></article>
+          <article id="city-panel-taipei" class="city-card taipei" data-city-panel="taipei"><header><span>台北</span></header><p>交通・ホテルの選択肢が多く、帰国前に泊まりやすい。</p><ul><li>宿代は高めになりやすい</li><li>MRTで動きやすい</li><li>雨の日も屋内の行き先が多い</li></ul></article>
+          <article id="city-panel-taichung" class="city-card taichung" data-city-panel="taichung"><header><span>台中</span></header><p>今の滞在先。夜市・食堂・カフェを回れる。</p><ul><li>台北から高鉄で約1時間</li><li>市内の移動先はやや離れる</li><li>バス・MRTはEasyCardが便利</li></ul></article>
+          <article id="city-panel-tainan" class="city-card tainan" data-city-panel="tainan"><header><span>台南</span></header><p>屋台と古い街並み。高鉄駅から市街地までは別途移動が必要。</p><ul><li>小さな食堂が多い</li><li>台中からの移動時間も確認</li><li>現金とEasyCardを用意</li></ul></article>
         </div>
       </section>
 
