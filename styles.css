@@ -34,13 +34,16 @@ a { color:inherit; }
 .food-group { border-top:1px solid var(--line); padding:15px 0 17px; }
 .food-group:last-of-type { border-bottom:1px solid var(--line); }
 .food-group-heading { display:flex; align-items:baseline; justify-content:space-between; gap:12px; }
-.food-group-heading h3 { margin:0; font-family:inherit; font-size:1.02rem; letter-spacing:0; }
+.food-group-heading h3 { min-width:0; margin:0; font-family:inherit; font-size:1.02rem; letter-spacing:0; }
 .food-group-heading a,.food-list a,.food-sources a { color:var(--teal-deep); font-size:.78rem; font-weight:700; text-underline-offset:3px; white-space:nowrap; }
 .food-list { margin:10px 0 0; padding:0; list-style:none; }
 .food-list li { display:flex; align-items:baseline; justify-content:space-between; gap:12px; padding:8px 0; border-top:1px solid var(--line); }
 .food-list strong,.food-list small { display:block; }
 .food-list strong { font-size:.91rem; }
 .food-list small { margin-top:2px; color:var(--muted); font-size:.76rem; line-height:1.4; }
+.pinyin { color:var(--teal-deep); font-family:system-ui,sans-serif; font-size:.72rem; font-weight:500; letter-spacing:0; line-height:1.45; }
+.food-group-heading .pinyin { margin-left:4px; font-size:.69rem; white-space:nowrap; }
+.food-list .pinyin,.phrase-list dd .pinyin { display:block; margin-top:2px; overflow-wrap:anywhere; }
 .food-sources { display:flex; flex-wrap:wrap; gap:6px 14px; margin-top:7px; }
 .food-sources a { font-size:.72rem; }
 .food-note { margin:12px 0 0; color:var(--muted); font-size:.78rem; }
