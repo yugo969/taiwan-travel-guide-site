@@ -27,6 +27,25 @@ a { color:inherit; }
 .first-card-strong { background:rgba(201,94,82,.075); }
 @media (max-width:680px) { .hero-status { gap:8px; }.hero-status>div { padding:10px 12px; }.hero-status>div+div { padding-left:12px; border:1px solid rgba(213,158,54,.35); }.hero-route { padding:12px 14px 11px; } }
 .site-nav a,.button,.hero-status>div,.hero-route,.mobile-dock a { border-radius:6px; }
+.route-board { grid-template-columns:repeat(3,minmax(0,1fr)); }
+.route-stop { min-height:0; }
+.link-grid a { min-height:64px; }
+.link-grid strong { margin-bottom:0; padding-right:14px; }
+.food-group { border-top:1px solid var(--line); padding:15px 0 17px; }
+.food-group:last-of-type { border-bottom:1px solid var(--line); }
+.food-group-heading { display:flex; align-items:baseline; justify-content:space-between; gap:12px; }
+.food-group-heading h3 { margin:0; font-family:inherit; font-size:1.02rem; letter-spacing:0; }
+.food-group-heading a,.food-list a,.food-sources a { color:var(--teal-deep); font-size:.78rem; font-weight:700; text-underline-offset:3px; white-space:nowrap; }
+.food-list { margin:10px 0 0; padding:0; list-style:none; }
+.food-list li { display:flex; align-items:baseline; justify-content:space-between; gap:12px; padding:8px 0; border-top:1px solid var(--line); }
+.food-list strong,.food-list small { display:block; }
+.food-list strong { font-size:.91rem; }
+.food-list small { margin-top:2px; color:var(--muted); font-size:.76rem; line-height:1.4; }
+.food-sources { display:flex; flex-wrap:wrap; gap:6px 14px; margin-top:7px; }
+.food-sources a { font-size:.72rem; }
+.food-note { margin:12px 0 0; color:var(--muted); font-size:.78rem; }
+@media (max-width:920px) { .route-board { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:680px) { .site-nav { justify-content:flex-end; overflow:visible; }.site-nav .nav-link { display:none; }.route-board { grid-template-columns:1fr; }.mobile-dock { grid-template-columns:repeat(5,minmax(0,1fr)); }.mobile-dock a { font-size:.64rem; } }
 .weather-panel { margin-top:10px; }.weather-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); column-gap:10px; }.weather-card { min-width:0; }.weather-card>b { display:block; color:var(--teal-deep); font-size:.74rem; }.weather-main { display:flex; align-items:center; gap:4px; margin:2px 0 0; }.weather-icon { display:inline-grid; width:20px; height:20px; place-items:center; color:var(--coral); }.weather-icon svg { width:18px; height:18px; stroke-width:3; }.weather-main strong { font-family:"Hiragino Sans","Noto Sans JP",sans-serif; font-size:1rem; letter-spacing:-.04em; }.weather-main small { margin-left:auto; color:var(--muted); font-size:.62rem; white-space:nowrap; }.weather-trend { display:flex; min-height:16px; align-items:center; gap:1px; margin-top:2px; color:var(--teal); }.weather-trend-step { display:grid; width:15px; height:15px; place-items:center; }.weather-trend-step svg { width:14px; height:14px; stroke-width:3; }.weather-trend-separator { width:7px; height:7px; stroke-width:3; }.weather-meta { display:flex; justify-content:space-between; gap:8px; margin-top:4px; }.weather-updated { margin:0; color:var(--muted); font-size:.62rem; }.weather-meta a { color:var(--teal-deep); font-size:.62rem; font-weight:800; text-decoration:none; white-space:nowrap; }.weather-card:has([data-weather-icon][aria-label*="雷雨"])>b { color:var(--coral); } @media (max-width:680px) { .weather-panel { margin-top:9px; }.weather-grid { column-gap:8px; }.weather-card>b { font-size:.7rem; }.weather-main strong { font-size:.95rem; }.weather-main small { font-size:.59rem; } }
 @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
 .first-card a { display:inline-block; margin-top:8px; color:var(--teal-deep); font-size:.78rem; font-weight:800; text-underline-offset:3px; }
