@@ -89,22 +89,67 @@ a { color:inherit; }
 .reflection-card p { color:var(--ink); }
 .detail-panel summary { display:flex; align-items:center; list-style:none; }
 .detail-panel summary::after { color:var(--muted); }
+
+/* Keep itinerary facts on full-width lines below their compact label/status row. */
+.hero-status>div { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:baseline; gap:2px 8px; padding:11px 13px 12px; }
+.hero-status>div+div { padding-left:13px; border-left:1px solid var(--line); }
+.hero-status>div>span { grid-column:1; grid-row:1; }
+.hero-status>div>small { position:static; grid-column:2; grid-row:1; max-width:none; text-align:right; }
+.hero-status>div>strong { grid-column:1 / -1; grid-row:2; margin:2px 0 0; padding:0; }
+
+/* Present each reflection as a two-column before/next-time comparison. */
+.reflection-grid { grid-template-columns:1fr; }
+.reflection-card { display:grid; grid-template-columns:minmax(190px,.8fr) minmax(0,1.2fr); gap:18px; align-items:start; }
+.reflection-topic>span { display:block; margin-bottom:6px; color:var(--teal-deep); font-size:.78rem; font-weight:800; }
+.reflection-topic>p,.reflection-plan>p { margin:0; }
+.reflection-plan { display:grid; gap:8px; }
+.reflection-plan>p { padding-left:12px; border-left:2px solid rgba(11,105,115,.2); }
+.reflection-plan strong { display:block; margin-bottom:2px; color:var(--teal-deep); font-size:.76rem; }
+
+/* The entire transport section can be collapsed without changing its four cards. */
+.section-disclosure>summary { display:flex; align-items:center; gap:10px; cursor:pointer; list-style:none; }
+.section-disclosure>summary::-webkit-details-marker { display:none; }
+.section-disclosure>summary::before { content:"⌄"; flex:none; color:var(--muted); font:1.35rem/1 system-ui,sans-serif; transition:transform .18s ease; }
+.section-disclosure[open]>summary::before { transform:rotate(180deg); }
+.section-disclosure>summary h2 { margin-bottom:0; }
+.section-disclosure>.section-disclosure-content { padding-top:16px; }
+
+/* Use clear chevrons on disclosure rows; meal periods get their own icon and map shortcut. */
+.food-disclosure { position:relative; }
+.food-disclosure>summary { justify-content:flex-start; gap:9px; padding-right:98px; }
+.food-disclosure>summary::before { content:"⌄"; flex:none; width:22px; color:var(--teal); font:1.45rem/1 system-ui,sans-serif; transition:transform .18s ease; }
+.food-disclosure[open]>summary::before { transform:rotate(180deg); }
+.food-disclosure>summary::after { content:none; }
+.food-disclosure>summary h3 { display:flex; min-width:0; align-items:center; gap:9px; }
+.food-period-icon { display:inline-grid; flex:none; width:30px; place-items:center; color:var(--coral); font:1.2rem/1 system-ui,sans-serif; }
+.food-period-day { width:52px; font-size:.9rem; white-space:nowrap; }
+.food-summary-map { display:none; position:absolute; z-index:2; top:14px; right:42px; margin:0; }
+.food-summary-map a { color:var(--teal-deep); font-size:.76rem; font-weight:800; text-underline-offset:3px; }
+.food-disclosure[open]>.food-summary-map { display:block; }
+.food-disclosure>summary::after,.route-disclosure>summary::after,.detail-panel summary::after,.field-card summary::after { content:"⌄"; font-size:1.28rem; }
+.food-disclosure[open]>summary::after,.route-disclosure[open]>summary::after,.detail-panel[open]>summary::after,.field-card[open]>summary::after { transform:rotate(180deg); }
+.food-disclosure>summary::after { content:none; }
 @media (max-width:680px) {
   .hero-status { grid-template-columns:1fr; }
-  .hero-status>div { padding:10px 86px 10px 12px; }
-  .hero-status>div+div { padding-left:12px; }
-  .hero-status strong { padding-right:88px; }
-  .hero-status small { top:12px; right:12px; max-width:76px; }
+  .hero-status>div { padding:10px 12px; }
+  .hero-status>div+div { padding-left:12px; border-left:1px solid var(--line); }
+  .hero-status>div>strong { padding-right:0; }
   .hero-route-list li { grid-template-columns:66px minmax(0,1fr); }
   .hero-route-list small { grid-column:2; }
   .food-group-content { padding:0 8px 10px; }
   .food-disclosure>summary,.route-disclosure>summary { padding:12px 8px; }
   .food-group-heading h3 { font-size:.96rem; }
+  .food-disclosure>summary { padding-right:82px; }
+  .food-disclosure>summary h3 { gap:6px; }
+  .food-period-icon { width:26px; }
+  .food-period-day { width:48px; font-size:.84rem; }
+  .food-summary-map { top:14px; right:35px; }
+  .food-summary-map a { font-size:.7rem; }
   .food-list li.photo-food-item,.standalone-photo { grid-template-columns:58px minmax(0,1fr) auto; gap:8px; }
   .photo-food-item>img { width:58px; height:52px; }
   .food-list li.photo-food-item>a,.standalone-photo>a { font-size:.7rem; }
   .reflection-block { padding:13px 12px; }
-  .reflection-card { padding:12px; }
+  .reflection-card { grid-template-columns:1fr; gap:10px; padding:12px; }
   .reflection-card+.reflection-card { border-top:1px solid rgba(11,105,115,.13); }
   .mobile-dock { grid-template-columns:repeat(6,minmax(0,1fr)); }
   .mobile-dock a { font-size:.6rem; }
