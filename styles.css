@@ -301,3 +301,68 @@ a { color:inherit; }
   .city-tabs.is-ready + .city-grid .city-card { padding:16px 0 18px; border-top:0; border-left:0; }
   .city-tabs.is-ready + .city-grid .city-card header { display:none; }
 }
+
+/* Compact hero hierarchy: dates recede behind destinations without losing legibility. */
+.hero-title-row h1 { margin-bottom:0; }
+.hero-status { margin-top:12px; }
+.hero-status>div { padding:8px 13px 9px; }
+.hero-status>div>strong { display:flex; flex-wrap:wrap; align-items:baseline; gap:3px 7px; margin:2px 0 0; padding:0; }
+.hero-status>div>strong>span:not(.hero-date) { color:var(--ink); }
+.hero-status .hero-date { display:inline; color:var(--muted); font-size:.82em; font-weight:400; }
+.hero-status .hero-stay-lines { display:grid; gap:1px; }
+.hero-status .hero-stay-lines>span { display:flex; align-items:baseline; gap:7px; }
+.hero-status .hero-stay-lines b { color:var(--ink); font:inherit; }
+.hero-left>.weather-panel { margin-top:12px; padding:10px 16px 9px; }
+.hero-left .weather-main small { font-size:.82rem; }
+@media (min-width:921px) {
+  .hero { padding-bottom:20px; }
+  .route-section { padding-top:28px; }
+}
+@media (max-width:680px) {
+  .hero-status>div { padding:8px 12px; }
+  .hero-left>.weather-panel { margin-top:-4px; padding:9px 11px 8px; }
+  .hero-left .weather-main small { font-size:.68rem; }
+}
+@media (max-width:360px) {
+  .hero-left .weather-main small { font-size:.62rem; }
+}
+
+/* Use one centered, fixed-size chevron for every disclosure state. */
+.food-disclosure>summary::before,
+.route-disclosure>summary::before,
+.section-disclosure>summary::before,
+.detail-panel>summary::before {
+  content:""!important;
+  display:block;
+  flex:none;
+  width:12px;
+  height:12px;
+  border:0;
+  border-right:2.5px solid currentColor;
+  border-bottom:2.5px solid currentColor;
+  color:var(--teal);
+  transform:rotate(45deg);
+  transition:none;
+}
+.food-disclosure[open]>summary::before,
+.route-disclosure[open]>summary::before,
+.section-disclosure[open]>summary::before,
+.detail-panel[open]>summary::before { transform:rotate(225deg); }
+.section-disclosure>summary::before,.detail-panel>summary::before { color:var(--muted); }
+.detail-panel>summary { gap:10px; padding-right:0; }
+.detail-panel>summary::after { content:none!important; }
+.field-card>summary::after {
+  content:""!important;
+  top:50%;
+  right:16px;
+  display:block;
+  width:12px;
+  height:12px;
+  border:0;
+  border-right:2.5px solid currentColor;
+  border-bottom:2.5px solid currentColor;
+  color:var(--muted);
+  transform:translateY(-50%) rotate(45deg);
+  transition:none;
+}
+.field-card[open]>summary::after { content:""!important; transform:translateY(-50%) rotate(225deg); }
