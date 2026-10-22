@@ -13,7 +13,7 @@
     <header class="site-header">
       <a class="site-brand" href="#top" aria-label="台湾旅行の案内の先頭へ">TAIWAN / OCT 2026</a>
       <nav class="site-nav" aria-label="ページ内メニュー">
-        <a class="nav-link" href="#route">日程</a><a class="nav-link" href="#food">食事</a><a class="nav-link" href="#cities">都市</a><a class="nav-link" href="#move">交通</a><a class="nav-link" href="#field">現地情報</a><button class="prep-nav-open" id="prep-open" type="button" aria-controls="prep-view" aria-expanded="false">準備</button>
+        <a class="nav-link" href="#route">日程</a><a class="nav-link" href="#food">食事</a><a class="nav-link" href="#cities">都市</a><a class="nav-link" href="#reflection">気づき</a><a class="nav-link" href="#move">交通</a><a class="nav-link" href="#field">現地情報</a><button class="prep-nav-open" id="prep-open" type="button" aria-controls="prep-view" aria-expanded="false">準備</button>
       </nav>
     </header>
 
@@ -21,24 +21,26 @@
       <section id="top" class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
           <h1 id="hero-title">台湾・10月の旅</h1>
-          <div class="hero-status" aria-label="旅の現在地">
+          <div class="hero-status" aria-label="実際の旅程">
             <div><span>帰国</span><strong>10/21（水）台北 → 成田</strong><small>予約済み</small></div>
-            <div><span>宿</span><strong>台中 10/16〜19</strong><small>19日以降の宿は未定</small></div>
+            <div><span>宿泊</span><strong>台中 10/16〜20・台北 10/20〜21</strong><small>予約済み</small></div>
+            <div><span>到着</span><strong>10/16 桃園 → 台中</strong><small>桃園から高鉄で移動</small></div>
           </div>
           <div class="hero-actions"><a class="button button-primary" href="#food">台中で食べる</a><a class="button button-quiet" href="#route">日程を見る</a></div>
         </div>
-        <aside class="hero-route" aria-label="現在の日程">
-          <strong>現在の日程</strong>
+        <aside class="hero-route" aria-label="日程">
+          <strong>日程</strong>
           <ol class="hero-route-list">
-            <li><span>16–19</span><b>台中</b><small>3泊・予約済み</small></li>
-            <li><span>19–21</span><b>宿は未定</b><small>台中延泊／台北へ移動</small></li>
-            <li><span>21</span><b>台北 → 成田</b><small>帰国便</small></li>
+            <li><span>10/16</span><b>桃園空港 → 台中</b><small>高鉄</small></li>
+            <li><span>10/16–20</span><b>台中</b><small>4泊</small></li>
+            <li><span>10/20–21</span><b>台北・西門</b><small>1泊</small></li>
+            <li><span>10/21</span><b>台北 → 成田</b><small>GK14</small></li>
           </ol>
           <section class="weather-panel" aria-label="台北・台中・台南の現在天気">
             <div class="weather-grid" aria-live="polite">
-              <article class="weather-card" data-weather-city="Taipei"><b>台北</b><div class="weather-main"><span class="weather-icon" data-weather-icon>読み込み中</span><strong data-weather-temperature>--°</strong><small data-weather-humidity>湿度 --%</small></div><div class="weather-trend" data-weather-trend>読み込み中</div></article>
-              <article class="weather-card" data-weather-city="Taichung"><b>台中</b><div class="weather-main"><span class="weather-icon" data-weather-icon>読み込み中</span><strong data-weather-temperature>--°</strong><small data-weather-humidity>湿度 --%</small></div><div class="weather-trend" data-weather-trend>読み込み中</div></article>
-              <article class="weather-card" data-weather-city="Tainan"><b>台南</b><div class="weather-main"><span class="weather-icon" data-weather-icon>読み込み中</span><strong data-weather-temperature>--°</strong><small data-weather-humidity>湿度 --%</small></div><div class="weather-trend" data-weather-trend>読み込み中</div></article>
+              <article class="weather-card" data-weather-city="Taipei"><b>台北</b><div class="weather-main"><span class="weather-icon" data-weather-icon aria-label="天気を読み込み中">…</span><strong data-weather-temperature>--°</strong><small data-weather-humidity>湿度 --%</small></div><div class="weather-trend" data-weather-trend aria-label="天気を読み込み中">…</div></article>
+              <article class="weather-card" data-weather-city="Taichung"><b>台中</b><div class="weather-main"><span class="weather-icon" data-weather-icon aria-label="天気を読み込み中">…</span><strong data-weather-temperature>--°</strong><small data-weather-humidity>湿度 --%</small></div><div class="weather-trend" data-weather-trend aria-label="天気を読み込み中">…</div></article>
+              <article class="weather-card" data-weather-city="Tainan"><b>台南</b><div class="weather-main"><span class="weather-icon" data-weather-icon aria-label="天気を読み込み中">…</span><strong data-weather-temperature>--°</strong><small data-weather-humidity>湿度 --%</small></div><div class="weather-trend" data-weather-trend aria-label="天気を読み込み中">…</div></article>
             </div>
             <div class="weather-meta"><p class="weather-updated" data-weather-updated>現地時刻の予報を取得中</p><a href="https://www.cwa.gov.tw/V8/E/W/" target="_blank" rel="noreferrer noopener">警報・台風 ↗</a></div>
           </section>
@@ -49,60 +51,61 @@
         <div class="section-heading"><h2 id="route-title">日程・移動</h2></div>
         <div class="route-board">
           <div class="route-rail" aria-hidden="true"></div>
-          <article class="route-stop"><b>01</b><h3>台中｜10/16〜19</h3><p>宿を確保済み。逢甲・旧市街を候補に、行き先を選ぶ。</p><a href="#food">台中の食事を見る ↓</a></article>
-          <article class="route-stop"><b>02</b><h3>10/19〜21｜未定</h3><p>台中に残るか、台北に移るか。次の宿を決める。</p><a href="#cities">都市を比較する ↓</a></article>
-          <article class="route-stop"><b>03</b><h3>10/21｜帰国</h3><p>台北発の便に合わせて北へ戻る。</p><a href="https://jp.thsrc.com.tw/" target="_blank" rel="noreferrer noopener">台湾高鉄 ↗</a></article>
+          <article class="route-stop"><b>01</b><h3>10/16｜到着・台中へ</h3><p>桃園空港から高鉄で台中へ移動。</p><a href="https://jp.thsrc.com.tw/" target="_blank" rel="noreferrer noopener">台湾高鉄 ↗</a></article>
+          <article class="route-stop"><b>02</b><h3>台中｜10/16〜20</h3><p>Airbnb 3泊、T-Hotel 1泊。</p><a href="#food">台中の食事を見る ↓</a></article>
+          <article class="route-stop"><b>03</b><h3>台北｜10/20〜21</h3><p>西門に1泊。翌日、桃園空港から帰国。</p><a href="#cities">都市の振り返りを見る ↓</a></article>
         </div>
-        <div class="food-group">
-          <div class="food-group-heading"><h3>帰国当日｜西門から桃園空港T1へ</h3><a href="https://www.tymetro.com.tw/tymetro-new/jp/_pages/travel-guide/timetable-A1" target="_blank" rel="noreferrer noopener">空港MRT時刻表 ↗</a></div>
+        <details class="food-group route-disclosure">
+          <summary class="food-group-heading"><h3>帰国当日｜西門から桃園空港T1へ</h3></summary>
+          <div class="food-group-content"><p class="inline-links"><a href="https://www.tymetro.com.tw/tymetro-new/jp/_pages/travel-guide/timetable-A1" target="_blank" rel="noreferrer noopener">空港MRT時刻表 ↗</a></p>
           <p><strong>移動予定：</strong>西門の宿を10:00ごろ出発。西門駅から緑線（松山新店線）で北門駅まで1駅、北門から空港MRT A1台北駅まで徒歩約12分、直達車でA12・第一ターミナルへ。Googleマップの候補は10:06発〜11:07着（全体約1時間）。乗換や待ち時間で前後するため、到着後は寄り道せずチェックインカウンターへ。</p>
           <p><strong>悠遊卡：</strong>西門→北門が約NT$20、A1→A12がNT$160で、合計約NT$180。残高は200元以上あると安心。同じカードで台北MRTと空港MRTの改札を通れる。北門ではいったん台北MRTを出て、A1で空港MRTに入り直す。</p>
           <p><strong>GK14・13:10発：</strong>オンラインチェックイン不可のためカウンターで手続き。受付開始10:10、締切12:25。保安検査・出国審査は11:10ごろまでに通過が目安、搭乗口へは12:30までに到着、搭乗口締切12:55。11:07着は保安検査等の目安時刻にほぼ重なるため、遅延時は時間の余裕が減る。到着したらカウンター、保安検査・出国審査、搭乗口の順に進む。</p>
           <p><strong>手荷物：</strong>JALマイル交換の航空券に機内持込7kg・預け入れ23kgの枠あり。預け入れは使わない予定。機内持込荷物は購入品がなく、重さが増えていない見込みでも、カウンターで確認された場合に備えてすぐ計れる状態にしておく。</p>
           <p class="inline-links"><a href="https://www.jetstar.com/jp/ja/help/when-do-i-need-to-get-to-the-airport" target="_blank" rel="noreferrer noopener">ジェットスター公式：空港手続きの開始・締切時刻 ↗</a></p>
-        </div>
-        <div class="food-group">
-          <div class="food-group-heading"><h3>10/18午後｜旧市街は櫟社から</h3><a href="https://travel.taichung.gov.tw/ja/tourist/tour/1045" target="_blank" rel="noreferrer noopener">台中市の旧城コース ↗</a></div>
+          </div>
+        </details>
+        <details class="food-group route-disclosure">
+          <summary class="food-group-heading"><h3>10/18午後｜旧市街は櫟社から</h3></summary>
+          <div class="food-group-content"><p class="inline-links"><a href="https://travel.taichung.gov.tw/ja/tourist/tour/1045" target="_blank" rel="noreferrer noopener">台中市の旧城コース ↗</a></p>
           <p>歩行を減らすならYouBikeか車で市府路へ。自転車で小指が痛むなら無理せず車に切り替える。食事は1軒だけ選び、全部回る前提にしない。営業時間は出発前に再確認。</p>
           <ul class="food-list">
-            <li><span><strong>櫟社</strong><span class="pinyin">Lìshè</span><small>市府路150号。台湾茶と菓子。公式掲載の営業時間は18:30まで</small></span><a href="https://www.google.com/maps/search/?api=1&amp;query=櫟社+台中+市府路150號" target="_blank" rel="noreferrer noopener">地図 ↗</a></li>
-            <li><span><strong>1035 Collab</strong><small>市府路73号。今日は省略可。建物内のHAUSINC 1035は17:30閉店の掲載あり</small></span><a href="https://www.google.com/maps/search/?api=1&amp;query=1035+collab+台中+市府路73號" target="_blank" rel="noreferrer noopener">地図 ↗</a></li>
-            <li><span><strong>中央書局</strong><span class="pinyin">Zhōngyāng shūjú</span><small>時間があれば寄る旧書店。台中市観光案内では日曜19:00まで</small></span><a href="https://travel.taichung.gov.tw/ja/Attractions/Intro/1548" target="_blank" rel="noreferrer noopener">店情報 ↗</a></li>
-            <li><span><strong>金之園草袋飯</strong><span class="pinyin">Jīnzhīyuán cǎodài fàn</span><small>夕食に選ぶならここ1軒。ミシュラン掲載は日曜19:30まで</small></span><a href="https://guide.michelin.com/tw/en/taichung-region/taichung/restaurant/chin-chih-yuan" target="_blank" rel="noreferrer noopener">店情報 ↗</a></li>
-            <li><span><strong>第四信用合作社 → 宮原眼科</strong><span class="pinyin">Dìsì xìnyòng hézuòshè → Gōngyuán yǎnkē</span><small>どちらも公式掲載は21:00まで。早い店の後、余力があれば</small></span><a href="https://www.dawncake.com.tw/ja/pages/store-information" target="_blank" rel="noreferrer noopener">営業時間 ↗</a></li>
-            <li><span><strong>春水堂・創始店</strong><span class="pinyin">Chūnshuǐtáng chuàngshǐ diàn</span><small>四維街30号。公式掲載は22:00まで。食事かお茶の代替先</small></span><a href="https://www.chunshuitang.com.tw/location-detail/original_store/" target="_blank" rel="noreferrer noopener">公式 ↗</a></li>
+            <li class="photo-food-item"><img src="https://image.kkday.com/v2/image/get/c_fit%2Cq_55%2Ct_webp%2Cw_960/s1.kkday.com/product_160930/20240120110931_xeKkP/png" alt="櫟社の入口" loading="lazy"><span><strong>櫟社</strong><span class="pinyin">Lìshè</span><small>市府路150号。台湾茶と菓子。公式掲載の営業時間は18:30まで</small></span><a href="https://www.google.com/maps/search/?api=1&amp;query=櫟社+台中+市府路150號" target="_blank" rel="noreferrer noopener">地図 ↗</a></li>
+            <li class="photo-food-item"><img src="https://taichung.travel/Image/66875/" alt="1035 Collabの建物" loading="lazy"><span><strong>1035 Collab</strong><small>市府路73号。旧診療所を改装した複合店。入る店は営業日・時間を確認</small></span><a href="https://www.google.com/maps/search/?api=1&amp;query=1035+collab+台中+市府路73號" target="_blank" rel="noreferrer noopener">地図 ↗</a></li>
+            <li class="photo-food-item"><img src="https://travel.taichung.gov.tw/content/images/attractions/51201/1024x768_image637752728277770885.jpg" alt="中央書局の外観" loading="lazy"><span><strong>中央書局</strong><span class="pinyin">Zhōngyāng shūjú</span><small>時間があれば寄る旧書店。台中市観光案内では日曜19:00まで</small></span><a href="https://travel.taichung.gov.tw/ja/Attractions/Intro/1548" target="_blank" rel="noreferrer noopener">店情報 ↗</a></li>
+            <li class="photo-food-item"><img src="https://cdn.walkerland.com.tw/images/upload/poi/p115784/m37532/6670afcb1c7c548b56c7c7cecb464df26e39b166.jpg" alt="金之園草袋飯の店内" loading="lazy"><span><strong>金之園草袋飯</strong><span class="pinyin">Jīnzhīyuán cǎodài fàn</span><small>夕食に選ぶならここ1軒。ミシュラン掲載店</small></span><a href="https://guide.michelin.com/tw/en/taichung-region/taichung/restaurant/chin-chih-yuan" target="_blank" rel="noreferrer noopener">店情報 ↗</a></li>
+            <li class="photo-food-item"><img src="https://travel.taichung.gov.tw/content/images/attractions/13600/1024x768_Filedata635618354068246849.jpg" alt="第四信用合作社の外観" loading="lazy"><span><strong>第四信用合作社 → 宮原眼科</strong><span class="pinyin">Dìsì xìnyòng hézuòshè → Gōngyuán yǎnkē</span><small>どちらも公式掲載は21:00まで。余力があれば</small></span><a href="https://www.dawncake.com.tw/ja/pages/store-information" target="_blank" rel="noreferrer noopener">営業時間 ↗</a></li>
+            <li class="photo-food-item"><img src="https://www.chunshuitang.com.tw/upload/article_b/P1012889_%5BC%5D__24A31yJaGV.webp" alt="春水堂の店内" loading="lazy"><span><strong>春水堂・創始店</strong><span class="pinyin">Chūnshuǐtáng chuàngshǐ diàn</span><small>四維街30号。公式掲載は22:00まで。食事かお茶の候補</small></span><a href="https://www.chunshuitang.com.tw/location-detail/original_store/" target="_blank" rel="noreferrer noopener">公式 ↗</a></li>
           </ul>
-          <p>上海未名麵點酸梅湯（<span class="pinyin">Shànghǎi Wèimíng miàndiǎn suānméitāng</span>／市府路69号）は日曜休み・昼営業。月曜も休みという掲載があり、今回なら10/20（火）の朝〜13:30に別枠で。第二市場も行くなら朝〜昼前に別途立ち寄る。</p>
-        </div>
+          <p class="photo-food-item standalone-photo"><img src="https://safood.tw/wp-content/uploads/pixnet/sezna627/1334136047-4147032167.jpg" alt="上海未名麵點の麺料理" loading="lazy"><span>上海未名麵點酸梅湯（<span class="pinyin">Shànghǎi Wèimíng miàndiǎn suānméitāng</span>／市府路69号）は昼営業。今回の旅では営業時間に間に合わず、訪問できなかった。第二市場も含め、行くなら朝〜昼に。</span><a href="https://www.google.com/maps/search/?api=1&amp;query=上海未名麵點酸梅湯+台中" target="_blank" rel="noreferrer noopener">地図 ↗</a></p>
+          </div>
+        </details>
       </section>
 
       <section id="food" class="section food-section" aria-labelledby="food-title">
         <div class="section-heading"><h2 id="food-title">台中で食べる</h2></div>
-        <div class="food-group">
-          <div class="food-group-heading"><h3>夜｜逢甲夜市 <span class="pinyin">Féngjiǎ yèshì</span></h3><a href="https://www.google.com/maps/search/?api=1&amp;query=逢甲夜市" target="_blank" rel="noreferrer noopener">夜市の地図 ↗</a></div>
+        <details class="food-group food-disclosure"><summary class="food-group-heading"><h3>夜｜逢甲夜市 <span class="pinyin">Féngjiǎ yèshì</span></h3></summary><div class="food-group-content"><p class="inline-links"><a href="https://www.google.com/maps/search/?api=1&amp;query=逢甲夜市" target="_blank" rel="noreferrer noopener">夜市の地図 ↗</a></p>
           <ul class="food-list">
-            <li><span><strong>官芝霖大腸包小腸</strong><span class="pinyin">Guānzhīlín dàcháng bāo xiǎocháng</span><small>もち米の腸詰めでソーセージを挟む</small></span><a href="https://www.google.com/maps/search/?api=1&amp;query=官芝霖大腸包小腸+逢甲" target="_blank" rel="noreferrer noopener">地図 ↗</a></li>
-            <li><span><strong>明倫蛋餅</strong><span class="pinyin">Mínglún dànbǐng</span><small>甘辛いタレの台湾風卵クレープ</small></span><a href="https://www.google.com/maps/search/?api=1&amp;query=明倫蛋餅+逢甲" target="_blank" rel="noreferrer noopener">地図 ↗</a></li>
-            <li><span><strong>黃記麻油雞</strong><span class="pinyin">Huángjì máyóujī</span><small>温かい鶏のごま油スープ。座って食べたい時に</small></span><a href="https://www.google.com/maps/search/?api=1&amp;query=黃記麻油雞+文華路20-1號" target="_blank" rel="noreferrer noopener">地図 ↗</a></li>
+            <li class="photo-food-item"><img src="https://img.gototravel.tw/2019/taiwan/taichung/taichung-night-market/taichung-night-market-71.jpg" alt="官芝霖大腸包小腸" loading="lazy"><span><strong>官芝霖大腸包小腸</strong><span class="pinyin">Guānzhīlín dàcháng bāo xiǎocháng</span><small>もち米の腸詰めでソーセージを挟む</small></span><a href="https://www.google.com/maps/search/?api=1&amp;query=官芝霖大腸包小腸+逢甲" target="_blank" rel="noreferrer noopener">地図 ↗</a></li>
+            <li class="photo-food-item"><img src="https://cdn.walkerland.com.tw/images/upload/poi/p28050/m42662/2005c8692c06712a38d9f8c2b1a28c8ef9b8b4e8.jpg" alt="明倫蛋餅" loading="lazy"><span><strong>明倫蛋餅</strong><span class="pinyin">Mínglún dànbǐng</span><small>甘辛いタレの台湾風卵クレープ</small></span><a href="https://www.google.com/maps/search/?api=1&amp;query=明倫蛋餅+逢甲" target="_blank" rel="noreferrer noopener">地図 ↗</a></li>
+            <li class="photo-food-item"><img src="https://img.youtube.com/vi/HR0pe6ZWYDk/hqdefault.jpg" alt="黃記麻油雞の紹介動画のサムネイル" loading="lazy"><span><strong>黃記麻油雞</strong><span class="pinyin">Huángjì máyóujī</span><small>温かい鶏のごま油スープ。座って食べたい時に</small></span><a href="https://www.google.com/maps/search/?api=1&amp;query=黃記麻油雞+文華路20-1號" target="_blank" rel="noreferrer noopener">地図 ↗</a></li>
           </ul>
           <div class="food-sources"><a href="https://travel.taichung.gov.tw/ja/tourist/tour/1049" target="_blank" rel="noreferrer noopener">台中市のグルメ案内 ↗</a><a href="https://www.youtube.com/watch?v=y0nnXPKIwN0" target="_blank" rel="noreferrer noopener">屋台の動画 ↗</a><a href="https://www.youtube.com/watch?v=HR0pe6ZWYDk" target="_blank" rel="noreferrer noopener">黃記麻油雞の動画 ↗</a></div>
-        </div>
-        <div class="food-group">
-          <div class="food-group-heading"><h3>別の夜｜忠孝夜市 <span class="pinyin">Zhōngxiào yèshì</span></h3><a href="https://www.google.com/maps/search/?api=1&amp;query=忠孝路觀光夜市+台中" target="_blank" rel="noreferrer noopener">夜市の地図 ↗</a></div>
+          </div></details>
+        <details class="food-group food-disclosure"><summary class="food-group-heading"><h3>別の夜｜忠孝夜市 <span class="pinyin">Zhōngxiào yèshì</span></h3></summary><div class="food-group-content"><p class="inline-links"><a href="https://www.google.com/maps/search/?api=1&amp;query=忠孝路觀光夜市+台中" target="_blank" rel="noreferrer noopener">夜市の地図 ↗</a></p>
           <ul class="food-list">
-            <li><span><strong>味泉米糕</strong><span class="pinyin">Wèiquán mǐgāo</span><small>台中の米糕（mǐgāo）と肉羹（ròugēng）。食堂で一食にするなら</small></span><a href="https://www.google.com/maps/search/?api=1&amp;query=味泉米糕+忠孝路151號" target="_blank" rel="noreferrer noopener">地図 ↗</a></li>
-            <li><span><strong>正老牌臭豆腐麵線糊</strong><span class="pinyin">Zhènglǎopái chòudòufu miànxiànhú</span><small>臭豆腐や麺線を試すなら</small></span><a href="https://www.google.com/maps/search/?api=1&amp;query=正老牌臭豆腐麵線糊+台中" target="_blank" rel="noreferrer noopener">地図 ↗</a></li>
+            <li class="photo-food-item"><img src="https://supertaste-images.tvbs.com.tw/?q=75&amp;url=https%3A%2F%2Fsupertaste-asset.tvbs.com.tw%2Flegacy%2Fimg%2Fprogram%2Fupload%2F2023%2F04%2F24%2F20230424135133-02178885.jpg&amp;w=1440" alt="味泉米糕" loading="lazy"><span><strong>味泉米糕</strong><span class="pinyin">Wèiquán mǐgāo</span><small>台中の米糕（mǐgāo）と肉羹（ròugēng）。食堂で一食にするなら</small></span><a href="https://www.google.com/maps/search/?api=1&amp;query=味泉米糕+忠孝路151號" target="_blank" rel="noreferrer noopener">地図 ↗</a></li>
+            <li class="photo-food-item"><img src="https://pimg.1px.tw/ko310kmo/1651320854-660077263-g.jpg" alt="正老牌臭豆腐麵線糊" loading="lazy"><span><strong>正老牌臭豆腐麵線糊</strong><span class="pinyin">Zhènglǎopái chòudòufu miànxiànhú</span><small>臭豆腐や麺線を試すなら</small></span><a href="https://www.google.com/maps/search/?api=1&amp;query=正老牌臭豆腐麵線糊+台中" target="_blank" rel="noreferrer noopener">地図 ↗</a></li>
           </ul>
           <div class="food-sources"><a href="https://travel.taichung.gov.tw/zh-tw/Diary/List?page=4&amp;source=2" target="_blank" rel="noreferrer noopener">台中市の夜市案内 ↗</a><a href="https://www.youtube.com/watch?v=xddapEvpsI4" target="_blank" rel="noreferrer noopener">現地の食べ歩き動画 ↗</a></div>
-        </div>
-        <div class="food-group">
-          <div class="food-group-heading"><h3>朝〜昼｜第二市場 <span class="pinyin">Dì'èr shìchǎng</span></h3><a href="https://www.google.com/maps/search/?api=1&amp;query=台中第二市場" target="_blank" rel="noreferrer noopener">市場の地図 ↗</a></div>
+          </div></details>
+        <details class="food-group food-disclosure"><summary class="food-group-heading"><h3>朝〜昼｜第二市場 <span class="pinyin">Dì'èr shìchǎng</span></h3></summary><div class="food-group-content"><p class="inline-links"><a href="https://www.google.com/maps/search/?api=1&amp;query=台中第二市場" target="_blank" rel="noreferrer noopener">市場の地図 ↗</a></p>
           <ul class="food-list">
-            <li><span><strong>王記菜頭粿糯米腸</strong><span class="pinyin">Wángjì càitóuguǒ nuòmǐcháng</span><small>菜頭粿＋米腸＋卵。朝・昼向け</small></span><a href="https://www.google.com/maps/search/?api=1&amp;query=王記菜頭粿糯米腸+第二市場" target="_blank" rel="noreferrer noopener">地図 ↗</a></li>
-            <li><span><strong>山河魯肉飯</strong><span class="pinyin">Shānhé lǔròufàn</span><small>大きな煮込み豚肉がのった台中式の魯肉飯</small></span><a href="https://www.google.com/maps/search/?api=1&amp;query=山河魯肉飯+第二市場" target="_blank" rel="noreferrer noopener">地図 ↗</a></li>
+            <li class="photo-food-item"><img src="https://www.walkerland.com.tw/image/1200/0/poi/p23976/m36683/22f54d9e0dfbc0ae4d3fb30bda7ae5b4c661b605.jpg" alt="王記菜頭粿糯米腸" loading="lazy"><span><strong>王記菜頭粿糯米腸</strong><span class="pinyin">Wángjì càitóuguǒ nuòmǐcháng</span><small>菜頭粿＋米腸＋卵。朝・昼向け</small></span><a href="https://www.google.com/maps/search/?api=1&amp;query=王記菜頭粿糯米腸+第二市場" target="_blank" rel="noreferrer noopener">地図 ↗</a></li>
+            <li class="photo-food-item"><img src="https://cdn.walkerland.com.tw/images/upload/poi/p74453/m26395/ec761dd1b7bc454cf6299013a61131894c5aecee.jpg" alt="山河魯肉飯の店頭" loading="lazy"><span><strong>山河魯肉飯</strong><span class="pinyin">Shānhé lǔròufàn</span><small>大きな煮込み豚肉がのった台中式の魯肉飯</small></span><a href="https://www.google.com/maps/search/?api=1&amp;query=山河魯肉飯+第二市場" target="_blank" rel="noreferrer noopener">地図 ↗</a></li>
           </ul>
           <div class="food-sources"><a href="https://travel.taichung.gov.tw/ja/tourist/tour/1049" target="_blank" rel="noreferrer noopener">台中市の市場案内 ↗</a><a href="https://www.youtube.com/watch?v=4uldFOC9X3k" target="_blank" rel="noreferrer noopener">市場の動画 ↗</a></div>
-        </div>
+          </div></details>
         <p class="food-note">屋台はよく加熱された料理から選ぶ。営業時間・営業日は地図で当日確認。</p>
       </section>
 
@@ -118,11 +121,11 @@
           <article id="city-panel-taichung" class="city-card taichung" data-city-panel="taichung"><header><span>台中</span></header><p>今の滞在先。夜市・食堂・カフェを回れる。</p><ul><li>台北から高鉄で約1時間</li><li>市内の移動先はやや離れる</li><li>バス・MRTはEasyCardが便利</li></ul></article>
           <article id="city-panel-tainan" class="city-card tainan" data-city-panel="tainan"><header><span>台南</span></header><p>屋台と古い街並み。高鉄駅から市街地までは別途移動が必要。</p><ul><li>小さな食堂が多い</li><li>台中からの移動時間も確認</li><li>現金とEasyCardを用意</li></ul></article>
         </div>
-        <div class="reflection-block">
+        <div class="reflection-block" id="reflection">
           <h3>今回の気づき</h3>
           <div class="reflection-grid">
-            <article class="reflection-card"><span>宿選び</span><p>価格や星だけでなく、最近の口コミに虫の報告があるか、宿がどう対応しているかも確認。対策用品を持参するなら、対象の虫が表示された製品を選び、肌用・室内用を使い分ける。寝具や枕には、製品表示で使用できる場合だけ使う。</p></article>
-            <article class="reflection-card"><span>滞在都市</span><p>久しぶりの台湾で短い日程なら、飲食・観光・日用品が集まり、MRTで回りやすい台北を拠点にすると動きやすい。台中は行き先が広く離れがちなので、宿代だけでなく移動時間と交通費も含めて比べる。</p></article>
+            <article class="reflection-card"><span>宿の虫対策</span><p>台湾の宿は、価格や星の数が高くてもダニ・トコジラミ・蚊の口コミがあり、選ぶときに迷った。次回は、この3つを対象に表示した虫よけを日本から持参する。肌に使うものは肌用表示を守り、寝具用として表示されていない製品をベッドや枕には噴霧しない。対策用品があれば、口コミが気になる宿を選ぶときの不安を減らせる。</p></article>
+            <article class="reflection-card"><span>滞在する街</span><p>10年以上ぶりの台湾で土地勘がない短い旅なら、台北を中心に泊まる方が自分には合っていた。飲食店・観光・日用品の選択肢が繁華街にまとまり、移動時間と交通費を抑えて回れる。台中は宿が安くても街が広く、行き先ごとの移動に時間と費用がかかる。次は宿代だけでなく、旅全体で見られる場所や動きやすさも含めて滞在都市を決める。</p></article>
           </div>
         </div>
       </section>
@@ -131,19 +134,19 @@
         <div class="section-heading"><h2 id="move-title">交通・支払い</h2></div>
         <div class="move-grid">
           <article class="move-card primary"><i aria-hidden="true">↯</i><h3>台北MRT</h3><p>Visa・Mastercard・JCBのタッチ対応カード、またはApple Payで改札を通る。入場と出場は同じカード・同じiPhoneを使う。</p><a href="https://english.metro.taipei/cp.aspx?n=BECC2E7AC426F659&amp;s=74E62C405BBE3069" target="_blank" rel="noreferrer noopener">台北MRTのカードタッチ案内 ↗</a></article>
-          <article class="move-card"><i aria-hidden="true">●</i><h3>バス・台中・台南</h3><p>物理EasyCardを1枚。駅の窓口や加値機、対応コンビニで現金チャージする。古いカードは残高確認後、そのまま使ってよい。</p><a href="https://www.easycard.com.tw/introduction?id=2" target="_blank" rel="noreferrer noopener">EasyCardのチャージ場所 ↗</a></article>
+          <article class="move-card"><i aria-hidden="true">●</i><h3>悠遊卡（悠遊カード）</h3><p>台北MRT・バス、台中などで使える交通ICカード。駅の機械で現金チャージするとお釣りは出ない機種があるため、NT$100札ならNT$100分を入れる。少額指定や不足分の精算は駅員に相談。</p><a href="https://www.easycard.com.tw/introduction?id=2" target="_blank" rel="noreferrer noopener">悠遊卡のチャージ案内 ↗</a></article>
           <article class="move-card"><i aria-hidden="true">¥</i><h3>夜市・小さな店</h3><p>現金を使う。到着時に少額を用意して、減ったら両替か海外引出し対応ATMで補う。クレジットカードのATM利用は条件を先に確認する。</p><a href="#field">現金とカードの準備を見る ↓</a></article>
-          <article class="move-card"><i aria-hidden="true">→</i><h3>都市間の高鉄</h3><p>日本語公式サイトで予約したら、T-EXの「載入訂位（zài rù dìng wèi／予約を読み込む）」に予約番号と予約時のパスポート番号下4桁を入力。アプリで決済・発券し、表示されたQR乗車券で改札を通る。紙の切符を受け取らなくてよい。</p><p>台北→台中は約1時間・標準車NT$700が目安。予定が固まった区間だけ早鳥枠を見る。</p><a href="https://jp.thsrc.com.tw/" target="_blank" rel="noreferrer noopener">台湾高鉄の日本語公式サイト ↗</a><a class="inline-text-link" href="https://www.thsrc.com.tw/ArticleContent/4d262503-84bc-4963-a58e-4ca1a6453ad3" target="_blank" rel="noreferrer noopener">T-EX「載入訂位」とQR乗車券の公式案内 ↗</a></article>
+          <article class="move-card"><i aria-hidden="true">→</i><h3>都市間の高鉄</h3><p>日本語公式サイトで予約したら、T-EXの「載入訂位（zài rù dìng wèi／予約を読み込む）」に予約番号と予約時のパスポート番号下4桁を入力。アプリで決済・発券し、表示されたQR乗車券で改札を通る。紙の切符を受け取らなくてよい。</p><p>台北→台中は約1時間・標準車NT$700が目安。予定が固まった区間だけ早鳥枠を見る。</p><p class="trip-com-disclaimer"><strong>Trip.comの割引券：</strong>今回使おうとした割引券は、乗車当日ではなく翌日以降の乗車分だけ窓口で引き換えできた。割引券は購入前に、利用日と引換条件を確認する。</p><a href="https://jp.thsrc.com.tw/" target="_blank" rel="noreferrer noopener">台湾高鉄の日本語公式サイト ↗</a><a class="inline-text-link" href="https://www.thsrc.com.tw/ArticleContent/4d262503-84bc-4963-a58e-4ca1a6453ad3" target="_blank" rel="noreferrer noopener">T-EX「載入訂位」とQR乗車券の公式案内 ↗</a></article>
         </div>
-        <details class="detail-panel"><summary>Easy Wallet と SuperCardを旅行の中心にしない理由</summary><div><p>Easy Walletは繁体字中国語のローカル電子決済です。SuperCardならアプリ経由のカード加値はできますが、元になるWallet残高の準備には台湾の電話番号、居留証、台湾の銀行口座が必要です。</p><p>造形カードを買うのは問題ありません。旅行中のチャージは駅・コンビニで現金、台北MRTはカード直接タッチ、と分ければ十分です。</p></div></details>
+        <details class="detail-panel"><summary>悠遊付・SuperCardは必要？</summary><div><p><strong>悠遊卡（交通ICカード）</strong>と<strong>悠遊付（台湾のスマホ決済アプリ）</strong>は別のもの。SuperCardは、悠遊付アプリからチャージできるNFC対応の悠遊卡です。</p><p>旅行中の移動には、通常の悠遊卡を駅やコンビニで現金チャージすれば十分。悠遊付やSuperCardの登録を、旅行前に無理に済ませる必要はありません。</p></div></details>
       </section>
 
       <section id="field" class="section field-section" aria-labelledby="field-title">
         <div class="section-heading"><h2 id="field-title">現地で使う情報</h2></div>
         <div class="field-grid">
-          <details class="field-card"><summary><span>01</span>空港に着いたら</summary><div><ol><li>通信がつながるか確認する。</li><li>少額の現金を用意する。</li><li>台北MRTはカード/Apple Payで入る。</li><li>EasyCardはバスへ乗る前に残高を見る。</li></ol></div></details>
+          <details class="field-card"><summary><span>01</span>空港に着いたら</summary><div><ol><li>通信がつながるか確認する。</li><li>少額の現金を用意する。</li><li>台北MRTはカード/Apple Payで入る。</li><li>悠遊卡はバスへ乗る前に残高を見る。</li></ol></div></details>
           <details class="field-card"><summary><span>02</span>10月の気候</summary><div><p>夏服を基本に、冷房用の薄い羽織と雨具を持つ。台中・台南は日中の暑さに注意。外を長く歩くなら朝夕に。</p><p class="inline-links"><a href="https://www.cwa.gov.tw/V8/E/W/County/County.html?CID=63" target="_blank" rel="noreferrer noopener">中央気象署の予報 ↗</a></p></div></details>
-          <details class="field-card"><summary><span>03</span>日本語で使うアプリ</summary><div><p>宿はTrip.com、台北MRTの路線は台北捷運Go、時刻や予約は<a class="inline-text-link" href="https://jp.thsrc.com.tw/" target="_blank" rel="noreferrer noopener">台湾高鉄の日本語公式サイト ↗</a>、<a class="inline-text-link" href="https://tip.railway.gov.tw/tra-tip-web/tip?lang=JA_JP" target="_blank" rel="noreferrer noopener">台鉄（国営台湾鉄路）の日本語公式サイト ↗</a>で確認。高鉄は日本語サイトで予約後、T-EXの「載入訂位（zài rù dìng wèi）」に予約番号とパスポート番号下4桁を入力して、アプリで決済・QR発券すれば紙の切符は不要。地図はGoogle マップ。Easy Walletを読めるようにする必要はない。</p><p class="inline-links"><a href="https://www.metro.taipei/News_Content.aspx?n=30CCEFD2A45592BF&amp;s=3A37430DBFF567DD" target="_blank" rel="noreferrer noopener">台北捷運Goの日本語案内 ↗</a><a href="https://www.thsrc.com.tw/ArticleContent/4d262503-84bc-4963-a58e-4ca1a6453ad3" target="_blank" rel="noreferrer noopener">T-EX「載入訂位」の公式手順 ↗</a></p></div></details>
+          <details class="field-card"><summary><span>03</span>日本語で使うアプリ</summary><div><p>宿はTrip.com、台北MRTの路線は台北捷運Go、時刻や予約は<a class="inline-text-link" href="https://jp.thsrc.com.tw/" target="_blank" rel="noreferrer noopener">台湾高鉄の日本語公式サイト ↗</a>、<a class="inline-text-link" href="https://tip.railway.gov.tw/tra-tip-web/tip?lang=JA_JP" target="_blank" rel="noreferrer noopener">台鉄（国営台湾鉄路）の日本語公式サイト ↗</a>で確認。高鉄は日本語サイトで予約後、T-EXの「載入訂位（zài rù dìng wèi）」に予約番号とパスポート番号下4桁を入力して、アプリで決済・QR発券すれば紙の切符は不要。地図はGoogle マップ。悠遊付の登録は旅行中に必須ではない。</p><p class="inline-links"><a href="https://www.metro.taipei/News_Content.aspx?n=30CCEFD2A45592BF&amp;s=3A37430DBFF567DD" target="_blank" rel="noreferrer noopener">台北捷運Goの日本語案内 ↗</a><a href="https://www.thsrc.com.tw/ArticleContent/4d262503-84bc-4963-a58e-4ca1a6453ad3" target="_blank" rel="noreferrer noopener">T-EX「載入訂位」の公式手順 ↗</a></p></div></details>
           <details class="field-card"><summary><span>04</span>店で注文するとき</summary><div>
             <p>レジで注文・支払い。下の中国語を見せてもOK。</p>
             <dl class="phrase-list">
@@ -159,11 +162,19 @@
             </dl>
             <p>「要加熱嗎？（yào jiā rè ma?／温めますか？）」には「要，謝謝（yào, xiè xie／はい）」／「不用，謝謝（bú yòng, xiè xie／いいえ）」。</p>
           </div></details>
-          <details class="field-card"><summary><span>05</span>カードが通らない時</summary><div><p>持参する4枚のカードから別の1枚を試し、次に現金へ切り替える。台北MRTでは、入場に使ったものと同じカード・同じ端末で出場する。</p></div></details>
-          <details class="field-card"><summary><span>06</span>持ち物</summary><div><p><strong>日本から:</strong> 常備薬・かゆみ止め、速乾トップス、薄手の羽織、歩きやすく濡れても乾きやすい靴、折りたたみ傘、帽子・日焼け止め、軽い折りたたみ日傘、虫よけ、飲み慣れた電解質粉末。パスポートの控え、航空券と初日の宿の予約控えはスマホに保存する。</p><p><strong>現地で足す:</strong> 水、飲み物、汗拭きシート、傘などは必要になってから購入。荷物を増やしすぎず、雨や暑さの予報に合わせて調整する。</p></div></details>
+          <details class="field-card"><summary><span>05</span>悠遊卡のチャージと精算</summary><div>
+            <p>駅のチャージ機はお釣りが出ない場合がある。NT$100札を入れると、そのままNT$100分チャージされる。指定額を入れたい場合は窓口で相談する。改札を出るとき残高が足りなければ、改札横の駅員にカードを見せて不足分を精算する。</p>
+            <dl class="phrase-list">
+              <div><dt>カードにチャージしたい</dt><dd><strong>我要加值悠遊卡。</strong><span class="pinyin">Wǒ yào jiāzhí Yōuyóu kǎ.</span><small>悠遊カードにチャージしたいです。</small></dd></div>
+              <div><dt>いくら不足していますか？</dt><dd><strong>還差多少錢？</strong><span class="pinyin">Hái chà duōshǎo qián?</span><small>あといくら足りませんか？</small></dd></div>
+              <div><dt>不足分を払います</dt><dd><strong>我補差額，謝謝。</strong><span class="pinyin">Wǒ bǔ chā'é, xièxie.</span><small>不足分を払います。</small></dd></div>
+            </dl>
+            <p class="inline-links"><a href="https://www.easycard.com.tw/faq?cls=1507889997&amp;page=1" target="_blank" rel="noreferrer noopener">悠遊卡公式FAQ ↗</a><a href="https://www.tymetro.com.tw/tymetro-new/tw/_pages/travel-guide/usage.html" target="_blank" rel="noreferrer noopener">桃園空港MRT：チャージ方法 ↗</a></p>
+          </div></details>
+          <details class="field-card"><summary><span>06</span>持ち物</summary><div><p><strong>日本から:</strong> 常備薬・かゆみ止め、速乾トップス、薄手の羽織、歩きやすく濡れても乾きやすい靴、折りたたみ傘、帽子・日焼け止め、軽い折りたたみ日傘、蚊・ダニ・トコジラミの対象表示がある虫よけ（肌用・寝具用の表示を確認）、飲み慣れた電解質粉末。パスポートの控え、航空券と初日の宿の予約控えはスマホに保存する。</p><p><strong>現地で足す:</strong> 水、飲み物、汗拭きシート、傘などは必要になってから購入。荷物を増やしすぎず、雨や暑さの予報に合わせて調整する。</p></div></details>
           <details class="field-card"><summary><span>07</span>YouBikeを借りる</summary><div>
             <p>台中ではYouBike 2.0が使える。台湾の電話番号がない旅行者は、公式アプリで「單次租車（dān cì zū chē／単発利用）」を選び、メール確認とクレジットカード登録をする。2026年から台中では無料の自転車傷害保険への加入が必要で、単発利用者はアプリから登録する。</p>
-            <ol><li>アプリで単発利用と保険登録を完了。登録時にNT$3,000がカード利用枠に一時確保される。通常返却後、120時間（5日）で解除手続きされ、カード会社の処理後に利用枠が戻る。</li><li>自転車の操作画面をアプリで読み取り、「請取車（qǐng qǔ chē／自転車を取ってください）」表示を確認して引き抜く。</li><li>返却ポートに差し込み、アプリまたは車体画面で「還車成功（huán chē chéng gōng／返却成功）」を確認する。</li></ol>
+            <ol><li>アプリで単発利用と保険登録を完了。登録時にNT$3,000がカード利用枠に一時確保される。通常返却後、120時間（5日）で解除手続きされ、カード会社の処理後に利用枠が戻る。</li><li>車体の操作画面には「悠遊卡をタッチ」と「QRコード」のボタンがある。アプリで借りる場合はQRコードのボタンを押し、画面にQRコードを表示してからアプリで読み取る。「請取車（qǐng qǔ chē／自転車を取ってください）」が出たら引き抜く。</li><li>返却ポートに差し込み、アプリまたは車体画面で「還車成功（huán chē chéng gōng／返却成功）」を確認する。</li></ol>
             <p>単発利用は会員向け割引の対象外。通常のYouBike 2.0は最初の4時間が30分ごとにNT$10（30分未満も30分扱い）。預かり金が気になる場合は、登録前に別の移動手段を選ぶ。</p>
             <p><strong>走行ルール:</strong> 台湾は車が右側通行。自転車は進行方向の右寄りを走り、歩道は共用表示がある場所だけ走行可。降りて押せば歩道を歩ける。左折は二段階、夜はライトを点け、横断歩道は降りて押して渡る。</p>
             <p class="inline-links"><a href="https://www.youbike.com.tw/region/i/rent-way/single/" target="_blank" rel="noreferrer noopener">YouBike公式：単発利用の借り方 ↗</a><a href="https://www.youbike.com.tw/region/i/news/service/67ac5af6070bce4e840d1f12/" target="_blank" rel="noreferrer noopener">台中の無料傷害保険・登録案内 ↗</a><a href="https://en.youbike.com.tw/region/i/rate/" target="_blank" rel="noreferrer noopener">台中の料金・預かり金 ↗</a><a href="https://www.npa.gov.tw/ch/app/faq/view?id=2144&amp;module=faq&amp;serno=A1078870" target="_blank" rel="noreferrer noopener">台湾警察：自転車と歩道のルール ↗</a></p>
@@ -257,8 +268,9 @@
       <a class="nav-link" href="#route">日程</a>
       <a class="nav-link" href="#food">食事</a>
       <a class="nav-link" href="#cities">都市</a>
+      <a class="nav-link" href="#reflection">気づき</a>
       <a class="nav-link" href="#move">交通</a>
-      <a class="nav-link" href="#field">現地情報</a>
+      <a class="nav-link" href="#field" aria-label="現地情報">現地</a>
     </nav>
     <script src="https://unpkg.com/lucide@0.554.0/dist/umd/lucide.min.js"></script>
     <script src="./app.js"></script>

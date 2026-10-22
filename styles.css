@@ -52,6 +52,63 @@ a { color:inherit; }
 @media (max-width:680px) { .site-nav { justify-content:flex-end; overflow:visible; }.site-nav .nav-link { display:none; }.route-board { grid-template-columns:1fr; }.mobile-dock { grid-template-columns:repeat(5,minmax(0,1fr)); }.mobile-dock a { font-size:.64rem; } }
 .weather-panel { margin-top:10px; }.weather-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); column-gap:10px; }.weather-card { min-width:0; }.weather-card>b { display:block; color:var(--teal-deep); font-size:.74rem; }.weather-main { display:flex; align-items:center; gap:4px; margin:2px 0 0; }.weather-icon { display:inline-grid; width:20px; height:20px; place-items:center; color:var(--coral); }.weather-icon svg { width:18px; height:18px; stroke-width:3; }.weather-main strong { font-family:"Hiragino Sans","Noto Sans JP",sans-serif; font-size:1rem; letter-spacing:-.04em; }.weather-main small { margin-left:auto; color:var(--muted); font-size:.62rem; white-space:nowrap; }.weather-trend { display:flex; min-height:16px; align-items:center; gap:1px; margin-top:2px; color:var(--teal); }.weather-trend-step { display:grid; width:15px; height:15px; place-items:center; }.weather-trend-step svg { width:14px; height:14px; stroke-width:3; }.weather-trend-separator { width:7px; height:7px; stroke-width:3; }.weather-meta { display:flex; justify-content:space-between; gap:8px; margin-top:4px; }.weather-updated { margin:0; color:var(--muted); font-size:.62rem; }.weather-meta a { color:var(--teal-deep); font-size:.62rem; font-weight:800; text-decoration:none; white-space:nowrap; }.weather-card:has([data-weather-icon][aria-label*="雷雨"])>b { color:var(--coral); } @media (max-width:680px) { .weather-panel { margin-top:9px; }.weather-grid { column-gap:8px; }.weather-card>b { font-size:.7rem; }.weather-main strong { font-size:.95rem; }.weather-main small { font-size:.59rem; } }
 @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+/* Compact itinerary labels and predictable native disclosure controls. */
+.hero-route>strong { font-family:inherit; font-size:.78rem; font-weight:700; color:var(--muted); letter-spacing:.02em; }
+.hero-route-list { margin-top:7px; }
+.hero-route-list li { grid-template-columns:66px minmax(0,1fr) auto; }
+.hero-status { grid-template-columns:repeat(3,minmax(0,1fr)); }
+.hero-status>div { position:relative; padding-right:94px; }
+.hero-status strong { padding-right:78px; }
+.hero-status small { position:absolute; top:13px; right:13px; max-width:78px; line-height:1.35; text-align:right; }
+.hero-status>div+div { padding-left:13px; border-left:1px solid var(--line); }
+.hero-status>div:nth-child(3) { border-color:rgba(201,94,82,.28); background:rgba(201,94,82,.055); }
+.trip-com-disclaimer { min-height:0!important; margin:0 0 12px!important; padding:9px 10px; border-radius:4px; background:rgba(213,158,54,.11); color:var(--ink)!important; font-size:.8rem!important; line-height:1.6; }
+.food-group.food-disclosure,.food-group.route-disclosure { padding:0; border-top:1px solid var(--line); }
+.food-group.route-disclosure { margin-top:14px; border:0; }
+.food-disclosure>summary,.route-disclosure>summary { display:flex; align-items:center; min-height:48px; padding:13px 12px; cursor:pointer; list-style:none; }
+.food-disclosure>summary::-webkit-details-marker,.route-disclosure>summary::-webkit-details-marker,.detail-panel summary::-webkit-details-marker,.field-card summary::-webkit-details-marker { display:none; }
+.food-disclosure>summary,.route-disclosure>summary,.detail-panel summary,.field-card summary { list-style:none; }
+.food-disclosure>summary::after,.route-disclosure>summary::after,.detail-panel summary::after,.field-card summary::after { content:"▾"; flex:none; margin-left:auto; padding-left:12px; color:var(--teal); font-family:system-ui,sans-serif; font-size:.78rem; transition:transform .18s ease; }
+.food-disclosure[open]>summary::after,.route-disclosure[open]>summary::after,.detail-panel[open]>summary::after,.field-card[open]>summary::after { transform:rotate(180deg); }
+.food-group-content { padding:0 12px 12px; }
+.route-disclosure[open] { border-radius:4px; background:rgba(11,105,115,.055); }
+.route-disclosure>summary { border-radius:4px; }
+.route-disclosure .food-group-heading h3 { font-size:.96rem; }
+.field-card summary::after { color:var(--muted); }
+.food-list li.photo-food-item { display:grid; grid-template-columns:68px minmax(0,1fr) auto; align-items:center; gap:10px; }
+.photo-food-item>img { display:block; width:68px; height:56px; object-fit:cover; border-radius:4px; background:var(--paper-deep); }
+.photo-food-item>span { min-width:0; }
+.photo-food-item>a { align-self:center; }
+.standalone-photo { display:grid; grid-template-columns:68px minmax(0,1fr) auto; align-items:center; gap:10px; margin:12px 0 0; color:var(--muted); font-size:.83rem; line-height:1.55; }
+.reflection-block { scroll-margin-top:74px; margin-top:28px; padding:16px 18px 18px; border-top:0; border-radius:6px; background:rgba(11,105,115,.07); }
+.reflection-block>h3 { margin-bottom:12px; color:var(--teal-deep); font-size:1.02rem; }
+.reflection-grid { border:0; gap:12px; }
+.reflection-card { padding:13px 14px; border:1px solid rgba(11,105,115,.13); border-radius:4px; background:rgba(251,250,245,.82); }
+.reflection-card+.reflection-card { border-left:1px solid rgba(11,105,115,.13); }
+.reflection-card>span { font-size:.78rem; }
+.reflection-card p { color:var(--ink); }
+.detail-panel summary { display:flex; align-items:center; list-style:none; }
+.detail-panel summary::after { color:var(--muted); }
+@media (max-width:680px) {
+  .hero-status { grid-template-columns:1fr; }
+  .hero-status>div { padding:10px 86px 10px 12px; }
+  .hero-status>div+div { padding-left:12px; }
+  .hero-status strong { padding-right:88px; }
+  .hero-status small { top:12px; right:12px; max-width:76px; }
+  .hero-route-list li { grid-template-columns:66px minmax(0,1fr); }
+  .hero-route-list small { grid-column:2; }
+  .food-group-content { padding:0 8px 10px; }
+  .food-disclosure>summary,.route-disclosure>summary { padding:12px 8px; }
+  .food-group-heading h3 { font-size:.96rem; }
+  .food-list li.photo-food-item,.standalone-photo { grid-template-columns:58px minmax(0,1fr) auto; gap:8px; }
+  .photo-food-item>img { width:58px; height:52px; }
+  .food-list li.photo-food-item>a,.standalone-photo>a { font-size:.7rem; }
+  .reflection-block { padding:13px 12px; }
+  .reflection-card { padding:12px; }
+  .reflection-card+.reflection-card { border-top:1px solid rgba(11,105,115,.13); }
+  .mobile-dock { grid-template-columns:repeat(6,minmax(0,1fr)); }
+  .mobile-dock a { font-size:.6rem; }
+}
 .first-card a { display:inline-block; margin-top:8px; color:var(--teal-deep); font-size:.78rem; font-weight:800; text-underline-offset:3px; }
 .forecast-note { margin:8px 0 0; padding:8px 10px; border-left:2px solid var(--gold); background:rgba(213,158,54,.08); color:var(--muted); font-size:.8rem; line-height:1.6; }
 .insurance-facts { margin:9px 0; }
