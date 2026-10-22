@@ -354,6 +354,7 @@ a { color:inherit; }
 .detail-panel[open]>summary::after { content:none!important; }
 .field-card>summary::after {
   content:""!important;
+  content:""!important;
   top:50%;
   right:16px;
   display:block;
@@ -412,4 +413,91 @@ a { color:inherit; }
 .field-card>summary::after { content:none!important; }
 @media (max-width:680px) {
   .reflection-card+.reflection-card { border-top:0; }
+}
+
+/* Itinerary card: one consistent outline, with row separators only between rows. */
+.hero-route { border-top-width:1px; }
+.hero-route-list li:last-child { border-bottom:0; }
+
+/* Field disclosure chevrons close the short title row instead of drifting to the cell edge. */
+.field-card>summary::before { content:none!important; }
+.field-card>summary { position:relative; padding-right:40px; }
+.field-card>summary::after {
+  content:""!important;
+  position:absolute!important;
+  top:50%;
+  right:16px;
+  display:block!important;
+  width:10px;
+  height:10px;
+  margin:0;
+  border-right:2px solid currentColor;
+  border-bottom:2px solid currentColor;
+  transform:translateY(-50%) rotate(45deg);
+}
+.field-card[open]>summary::after { transform:translateY(-50%) rotate(225deg); }
+
+.photo-food-item>.photo-preview-trigger {
+  display:block;
+  width:68px;
+  height:56px;
+  padding:0;
+  overflow:hidden;
+  border:0;
+  border-radius:4px;
+  background:var(--paper-deep);
+  cursor:zoom-in;
+}
+.photo-preview-trigger img { display:block; width:100%; height:100%; object-fit:cover; border-radius:inherit; }
+.photo-preview-trigger:focus-visible { outline:2px solid var(--teal); outline-offset:3px; }
+.standalone-photo>.photo-preview-trigger { align-self:center; }
+.photo-dialog {
+  width:min(1000px,calc(100vw - 32px));
+  max-width:none;
+  max-height:calc(100dvh - 32px);
+  overflow:auto;
+  padding:12px;
+  border:1px solid rgba(11,105,115,.2);
+  border-radius:8px;
+  background:var(--paper);
+  color:var(--ink);
+  box-shadow:var(--shadow);
+}
+.photo-dialog::backdrop { background:rgba(12,31,34,.72); backdrop-filter:blur(3px); }
+.photo-dialog-header { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:10px; }
+.photo-dialog-header h2 { max-width:calc(100% - 92px); margin:0; overflow-wrap:anywhere; color:var(--teal-deep); font-family:inherit; font-size:1rem; letter-spacing:0; }
+.photo-dialog>img { display:block; width:auto; max-width:100%; height:auto; max-height:calc(100dvh - 104px); margin:0 auto; object-fit:contain; }
+
+@media (max-width:680px) {
+  .photo-food-item>.photo-preview-trigger { width:58px; height:52px; }
+  .photo-dialog { width:calc(100vw - 16px); max-height:calc(100dvh - 16px); padding:10px; }
+  .photo-dialog>img { max-height:calc(100dvh - 76px); }
+  .site-header { justify-content:space-between; }
+  .site-brand { display:block; flex:none; font-size:.7rem; letter-spacing:.12em; white-space:nowrap; }
+  .site-nav { width:auto; flex:0 0 auto; }
+  .site-nav .prep-nav-open { display:none; }
+  .mobile-dock { grid-template-columns:repeat(7,minmax(0,1fr)); }
+  .mobile-dock .prep-dock-open {
+    display:grid;
+    min-width:0;
+    min-height:45px;
+    place-content:center;
+    padding:0;
+    border:0;
+    border-radius:10px;
+    background:transparent;
+    color:var(--muted);
+    font:inherit;
+    font-size:.6rem;
+    font-weight:800;
+    line-height:1.1;
+    white-space:nowrap;
+    cursor:pointer;
+  }
+}
+
+@media (max-width:360px) {
+  body { padding-bottom:116px; }
+  .mobile-dock { grid-template-columns:repeat(4,minmax(0,1fr)); }
+  .mobile-dock .prep-dock-open { grid-column:3; }
 }

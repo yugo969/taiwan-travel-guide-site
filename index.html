@@ -11,9 +11,9 @@
   <body>
     <a class="skip-link" href="#main">本文へ移動</a>
     <header class="site-header">
-      <a class="site-brand" href="#top" aria-label="台湾旅行の案内の先頭へ">TAIWAN / OCT 2026</a>
+        <a class="site-brand" href="#top" aria-label="台湾旅行の案内の先頭へ">TAIWAN / OCT 2026</a>
       <nav class="site-nav" aria-label="ページ内メニュー">
-        <a class="nav-link" href="#route">日程</a><a class="nav-link" href="#food">食事</a><a class="nav-link" href="#cities">都市</a><a class="nav-link" href="#reflection" data-open-reflection>気づき</a><a class="nav-link" href="#move">交通</a><a class="nav-link" href="#field">現地情報</a><button class="prep-nav-open" id="prep-open" type="button" aria-controls="prep-view" aria-expanded="false">準備</button>
+        <a class="nav-link" href="#route">日程</a><a class="nav-link" href="#food">食事</a><a class="nav-link" href="#cities">都市</a><a class="nav-link" href="#reflection" data-open-reflection>気づき</a><a class="nav-link" href="#move">交通</a><a class="nav-link" href="#field">現地情報</a><button class="prep-nav-open" id="prep-open" data-prep-open type="button" aria-controls="prep-view" aria-expanded="false">準備</button>
       </nav>
     </header>
 
@@ -104,7 +104,7 @@
           </div></details>
         <details class="food-group food-disclosure"><summary class="food-group-heading"><h3><i class="food-period-icon food-period-day" data-lucide="sunrise" aria-hidden="true"></i><span class="sr-only">朝から昼</span><span>第二市場 <span class="pinyin">Dì'èr shìchǎng</span></span></h3></summary><p class="food-summary-map"><a href="https://www.google.com/maps/search/?api=1&amp;query=台中第二市場" target="_blank" rel="noreferrer noopener">地図 ↗</a></p><div class="food-group-content">
           <ul class="food-list">
-            <li class="photo-food-item"><img src="https://www.walkerland.com.tw/image/1200/0/poi/p23976/m36683/22f54d9e0dfbc0ae4d3fb30bda7ae5b4c661b605.jpg" alt="王記菜頭粿糯米腸" loading="lazy"><span><strong>王記菜頭粿糯米腸</strong><span class="pinyin">Wángjì càitóuguǒ nuòmǐcháng</span><small>菜頭粿＋米腸＋卵。朝・昼向け</small></span><a href="https://www.google.com/maps/search/?api=1&amp;query=王記菜頭粿糯米腸+第二市場" target="_blank" rel="noreferrer noopener">地図 ↗</a></li>
+            <li class="photo-food-item"><img src="https://media.walkerland.com.tw/images/upload/poi/p23976/m36683/22f54d9e0dfbc0ae4d3fb30bda7ae5b4c661b605.jpg" alt="王記菜頭粿糯米腸" loading="lazy" referrerpolicy="no-referrer"><span><strong>王記菜頭粿糯米腸</strong><span class="pinyin">Wángjì càitóuguǒ nuòmǐcháng</span><small>菜頭粿＋米腸＋卵。朝・昼向け</small></span><a href="https://www.google.com/maps/search/?api=1&amp;query=王記菜頭粿糯米腸+第二市場" target="_blank" rel="noreferrer noopener">地図 ↗</a></li>
             <li class="photo-food-item"><img src="https://cdn.walkerland.com.tw/images/upload/poi/p74453/m26395/ec761dd1b7bc454cf6299013a61131894c5aecee.jpg" alt="山河魯肉飯の店頭" loading="lazy"><span><strong>山河魯肉飯</strong><span class="pinyin">Shānhé lǔròufàn</span><small>大きな煮込み豚肉がのった台中式の魯肉飯</small></span><a href="https://www.google.com/maps/search/?api=1&amp;query=山河魯肉飯+第二市場" target="_blank" rel="noreferrer noopener">地図 ↗</a></li>
           </ul>
           <div class="food-sources"><a href="https://travel.taichung.gov.tw/ja/tourist/tour/1049" target="_blank" rel="noreferrer noopener">台中市の市場案内 ↗</a><a href="https://www.youtube.com/watch?v=4uldFOC9X3k" target="_blank" rel="noreferrer noopener">市場の動画 ↗</a></div>
@@ -259,13 +259,16 @@
           </div>
         </section>
     </section>
-    <footer class="site-footer"><span>TAIWAN / OCT 2026</span><span>帰国便: 10/21（水）台北 → 成田</span></footer>
     <dialog class="reflection-dialog" id="reflection-dialog" aria-labelledby="reflection-title">
       <div class="reflection-dialog-header"><h2 id="reflection-title">気づきまとめ</h2><button type="button" class="reflection-close" data-close-reflection aria-label="閉じる">閉じる</button></div>
       <div class="reflection-grid">
         <article class="reflection-card"><h3>宿選び</h3><div class="reflection-plan"><p><strong>課題</strong>価格や星の数が高い宿でも、ダニ・トコジラミ・蚊の口コミがあり、選ぶときに迷った。</p><p><strong>対策</strong>ダニ・トコジラミ・蚊に対応した虫よけスプレーを用意する。肌に使うなら、肌に使える製品を選ぶ。</p></div></article>
         <article class="reflection-card"><h3>滞在する街</h3><div class="reflection-plan"><p><strong>課題</strong>10年以上ぶりで土地勘がない中、台中を中心に滞在した。街が広く、行き先ごとの移動に時間と費用がかかった。</p><p><strong>次回</strong>台北を中心に泊まる方が自分には合っていた。飲食店・観光・日用品が繁華街に集まり、動きやすい。</p></div></article>
       </div>
+    </dialog>
+    <dialog class="photo-dialog" id="photo-dialog" aria-labelledby="photo-dialog-title">
+      <div class="photo-dialog-header"><h2 id="photo-dialog-title">写真</h2><button type="button" class="reflection-close" data-close-photo aria-label="写真を閉じる">閉じる</button></div>
+      <img id="photo-dialog-image" alt="" referrerpolicy="no-referrer">
     </dialog>
     <nav class="mobile-dock" aria-label="旅行ガイドのショートカット">
       <a class="nav-link" href="#route">日程</a>
@@ -274,6 +277,7 @@
       <a class="nav-link" href="#reflection" data-open-reflection>気づき</a>
       <a class="nav-link" href="#move">交通</a>
       <a class="nav-link" href="#field" aria-label="現地情報">現地</a>
+      <button class="prep-dock-open" id="prep-mobile-open" data-prep-open type="button" aria-controls="prep-view" aria-expanded="false">準備</button>
     </nav>
     <script src="https://unpkg.com/lucide@0.554.0/dist/umd/lucide.min.js"></script>
     <script src="./app.js"></script>

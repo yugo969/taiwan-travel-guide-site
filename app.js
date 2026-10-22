@@ -42,6 +42,40 @@ reflectionDialog?.addEventListener("click", (event) => {
   if (event.target === reflectionDialog) reflectionDialog.close();
 });
 reflectionDialog?.addEventListener("close", () => lastReflectionOpener?.focus());
+
+const photoDialog = document.getElementById("photo-dialog");
+const photoDialogTitle = document.getElementById("photo-dialog-title");
+const photoDialogImage = document.getElementById("photo-dialog-image");
+const photoDialogClose = photoDialog?.querySelector("[data-close-photo]");
+let lastPhotoOpener = null;
+document.querySelectorAll(".photo-food-item > img").forEach((image) => {
+  const item = image.closest(".photo-food-item");
+  const title = item?.querySelector("strong")?.textContent?.trim() || image.alt || "写真";
+  const opener = document.createElement("button");
+  opener.className = "photo-preview-trigger";
+  opener.type = "button";
+  opener.setAttribute("aria-label", `写真を拡大：${title}`);
+  opener.setAttribute("aria-haspopup", "dialog");
+  image.replaceWith(opener);
+  opener.append(image);
+  opener.addEventListener("click", () => {
+    if (!photoDialog || !photoDialogImage || photoDialog.open) return;
+    lastPhotoOpener = opener;
+    photoDialogTitle.textContent = title;
+    photoDialogImage.src = image.currentSrc || image.src;
+    photoDialogImage.alt = image.alt;
+    photoDialog.showModal();
+    requestAnimationFrame(() => photoDialogClose?.focus());
+  });
+});
+photoDialogClose?.addEventListener("click", () => photoDialog?.close());
+photoDialog?.addEventListener("click", (event) => {
+  if (event.target === photoDialog) photoDialog.close();
+});
+photoDialog?.addEventListener("close", () => {
+  photoDialogImage?.removeAttribute("src");
+  requestAnimationFrame(() => lastPhotoOpener?.focus());
+});
 window.lucide?.createIcons({ attrs: { "stroke-width": 2.5 } });
 
 const cityTabList = document.querySelector("[data-city-tabs]");
@@ -107,11 +141,12 @@ const siteHeader = document.querySelector(".site-header");
 const siteFooter = document.querySelector(".site-footer");
 const mobileDock = document.querySelector(".mobile-dock");
 const skipLink = document.querySelector(".skip-link");
-const prepOpenButton = document.getElementById("prep-open");
+const prepOpenButtons = [...document.querySelectorAll("[data-prep-open]")];
 const prepTabs = [...(prepView?.querySelectorAll("[data-prep-tab]") || [])];
 const prepPanels = [...(prepView?.querySelectorAll("[role='tabpanel'][id^='prep-panel-']") || [])];
 const prepBoardFrame = prepView?.querySelector("iframe[data-prep-board-src]");
 let guideScrollY = 0;
+let activePrepOpenButton = prepOpenButtons[0] || null;
 const loadPrepBoard = () => {
   if (prepBoardFrame && !prepBoardFrame.hasAttribute("src")) {
     prepBoardFrame.setAttribute("src", prepBoardFrame.dataset.prepBoardSrc);
@@ -131,7 +166,7 @@ const selectPrepTab = (tab) => {
 };
 
 const setPrepView = (isOpen, { restoreScroll = true } = {}) => {
-  if (!prepView || !guideMain || !prepOpenButton) return;
+  if (!prepView || !guideMain || !prepOpenButtons.length) return;
   if (isOpen === !prepView.hidden) return;
 
   if (isOpen) {
@@ -142,7 +177,7 @@ const setPrepView = (isOpen, { restoreScroll = true } = {}) => {
     if (mobileDock) mobileDock.hidden = true;
     prepView.hidden = false;
     document.body.classList.add("prep-mode");
-    prepOpenButton.setAttribute("aria-expanded", "true");
+    prepOpenButtons.forEach((button) => button.setAttribute("aria-expanded", "true"));
     if (skipLink) skipLink.href = "#prep-view";
     window.scrollTo(0, 0);
     loadPrepBoard();
@@ -156,13 +191,15 @@ const setPrepView = (isOpen, { restoreScroll = true } = {}) => {
   if (siteFooter) siteFooter.hidden = false;
   if (mobileDock) mobileDock.hidden = false;
   document.body.classList.remove("prep-mode");
-  prepOpenButton.setAttribute("aria-expanded", "false");
+  prepOpenButtons.forEach((button) => button.setAttribute("aria-expanded", "false"));
   if (skipLink) skipLink.href = "#main";
   window.scrollTo(0, restoreScroll ? guideScrollY : 0);
-  prepOpenButton.focus();
+  activePrepOpenButton?.focus();
 };
-
-prepOpenButton?.addEventListener("click", () => setPrepView(prepView?.hidden ?? false));
+prepOpenButtons.forEach((button) => button.addEventListener("click", () => {
+  activePrepOpenButton = button;
+  setPrepView(prepView?.hidden ?? false);
+}));
 prepView?.querySelector("[data-prep-close]")?.addEventListener("click", () => setPrepView(false));
 prepTabs.forEach((tab) => tab.addEventListener("click", () => selectPrepTab(tab)));
 prepView?.querySelector("[role='tablist']")?.addEventListener("keydown", (event) => {
