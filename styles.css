@@ -366,3 +366,49 @@ a { color:inherit; }
   transition:none;
 }
 .field-card[open]>summary::after { content:""!important; transform:translateY(-50%) rotate(225deg); }
+
+/* Keep structural dividers between items, but remove framing lines that repeat
+   section spacing, card backgrounds, or the cards' own borders. */
+.section+.section { border-top:0; }
+.first-grid,.city-grid,.move-grid,.link-grid,.route-board,.choice-grid,.reflection-grid { border-top:0; border-bottom:0; }
+.city-card header { border-bottom:0; padding-bottom:0; }
+.reflection-card+.reflection-card { border-left:0; }
+
+/* Compact reflection labels so the challenge and next-step copy gets the width. */
+.reflection-card { grid-template-columns:max-content minmax(0,1fr); gap:1em; }
+.reflection-card h3 { display:grid; min-width:5em; min-height:100%; place-items:center; margin:0; text-align:center; }
+
+/* Same modest chevron size and centered alignment in both disclosure states. */
+.food-disclosure>summary,.route-disclosure>summary { gap:1em; }
+.section-disclosure>summary,.detail-panel>summary { gap:1em; }
+.food-disclosure>summary::before,
+.route-disclosure>summary::before,
+.section-disclosure>summary::before,
+.detail-panel>summary::before {
+  width:10px;
+  height:10px;
+  border-right-width:2px;
+  border-bottom-width:2px;
+}
+.field-card>summary { gap:0; padding-right:16px; }
+.field-card>summary .field-index { order:1; margin-right:.5em; }
+.field-card>summary::before {
+  order:2;
+  content:""!important;
+  display:block;
+  flex:none;
+  width:10px;
+  height:10px;
+  margin-right:1em;
+  border:0;
+  border-right:2px solid currentColor;
+  border-bottom:2px solid currentColor;
+  color:var(--muted);
+  transform:rotate(45deg);
+}
+.field-card[open]>summary::before { transform:rotate(225deg); }
+.field-card>summary .field-title { order:3; color:var(--ink); font:inherit; letter-spacing:0; }
+.field-card>summary::after { content:none!important; }
+@media (max-width:680px) {
+  .reflection-card+.reflection-card { border-top:0; }
+}
