@@ -80,13 +80,6 @@ a { color:inherit; }
 .photo-food-item>span { min-width:0; }
 .photo-food-item>a { align-self:center; }
 .standalone-photo { display:grid; grid-template-columns:68px minmax(0,1fr) auto; align-items:center; gap:10px; margin:12px 0 0; color:var(--muted); font-size:.83rem; line-height:1.55; }
-.reflection-block { scroll-margin-top:74px; margin-top:28px; padding:16px 18px 18px; border-top:0; border-radius:6px; background:rgba(11,105,115,.07); }
-.reflection-block>h3 { margin-bottom:12px; color:var(--teal-deep); font-size:1.02rem; }
-.reflection-grid { border:0; gap:12px; }
-.reflection-card { padding:13px 14px; border:1px solid rgba(11,105,115,.13); border-radius:4px; background:rgba(251,250,245,.82); }
-.reflection-card+.reflection-card { border-left:1px solid rgba(11,105,115,.13); }
-.reflection-card>span { font-size:.78rem; }
-.reflection-card p { color:var(--ink); }
 .detail-panel summary { display:flex; align-items:center; list-style:none; }
 .detail-panel summary::after { color:var(--muted); }
 
@@ -96,15 +89,6 @@ a { color:inherit; }
 .hero-status>div>span { grid-column:1; grid-row:1; }
 .hero-status>div>small { position:static; grid-column:2; grid-row:1; max-width:none; text-align:right; }
 .hero-status>div>strong { grid-column:1 / -1; grid-row:2; margin:2px 0 0; padding:0; }
-
-/* Present each reflection as a two-column before/next-time comparison. */
-.reflection-grid { grid-template-columns:1fr; }
-.reflection-card { display:grid; grid-template-columns:minmax(190px,.8fr) minmax(0,1.2fr); gap:18px; align-items:start; }
-.reflection-topic>span { display:block; margin-bottom:6px; color:var(--teal-deep); font-size:.78rem; font-weight:800; }
-.reflection-topic>p,.reflection-plan>p { margin:0; }
-.reflection-plan { display:grid; gap:8px; }
-.reflection-plan>p { padding-left:12px; border-left:2px solid rgba(11,105,115,.2); }
-.reflection-plan strong { display:block; margin-bottom:2px; color:var(--teal-deep); font-size:.76rem; }
 
 /* The entire transport section can be collapsed without changing its four cards. */
 .section-disclosure>summary { display:flex; align-items:center; gap:10px; cursor:pointer; list-style:none; }
@@ -153,6 +137,98 @@ a { color:inherit; }
   .reflection-card+.reflection-card { border-top:1px solid rgba(11,105,115,.13); }
   .mobile-dock { grid-template-columns:repeat(6,minmax(0,1fr)); }
   .mobile-dock a { font-size:.6rem; }
+}
+
+/* Top-level reflection access, expanded weather card, and aligned disclosure controls. */
+.hero-left { min-width:0; }
+.hero-title-row { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; }
+.hero-title-row h1 { margin-bottom:10px; }
+.reflection-open,.reflection-close { flex:none; display:inline-flex; align-items:center; justify-content:center; min-height:38px; padding:8px 12px; border:1px solid rgba(11,105,115,.24); border-radius:6px; background:rgba(11,105,115,.08); color:var(--teal-deep); font:inherit; font-size:.82rem; font-weight:800; cursor:pointer; }
+.reflection-open:hover,.reflection-open:focus-visible,.reflection-close:hover,.reflection-close:focus-visible { background:rgba(11,105,115,.16); }
+.hero-left>.weather-panel { margin-top:14px; padding:14px 16px 12px; border:1px solid rgba(11,105,115,.17); border-radius:6px; background:rgba(11,105,115,.065); }
+.hero-left .weather-card>b { font-size:.82rem; }
+.hero-left .weather-main { gap:7px; margin-top:5px; }
+.hero-left .weather-icon { width:28px; height:28px; }
+.hero-left .weather-icon svg { width:24px; height:24px; }
+.hero-left .weather-main strong { font-size:1.2rem; }
+.hero-left .weather-main small,.hero-left .weather-meta a,.hero-left .weather-updated { font-size:.7rem; }
+.hero-left .weather-trend { min-height:20px; margin-top:4px; }
+.hero-left .weather-trend-step { width:19px; height:19px; }
+.hero-left .weather-trend-step svg { width:17px; height:17px; }
+.hero-left .weather-trend-separator { width:9px; height:9px; }
+.reflection-dialog { width:min(860px,calc(100vw - 40px)); max-width:none; max-height:calc(100dvh - 48px); overflow:auto; padding:22px; border:1px solid rgba(11,105,115,.2); border-radius:8px; background:var(--paper); color:var(--ink); box-shadow:var(--shadow); }
+.reflection-dialog::backdrop { background:rgba(12,31,34,.52); backdrop-filter:blur(3px); }
+.reflection-dialog-header { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:14px; }
+.reflection-dialog-header h2 { margin:0; color:var(--teal-deep); font-size:1.55rem; }
+.reflection-grid { display:grid; grid-template-columns:1fr; gap:10px; border:0; }
+.reflection-card { display:grid; grid-template-columns:minmax(0,150px) minmax(0,1fr); gap:18px; align-items:start; padding:15px 16px; border:1px solid rgba(11,105,115,.13); border-radius:5px; background:#fffefa; }
+.reflection-card+.reflection-card { border-left:1px solid rgba(11,105,115,.13); }
+.reflection-card h3 { margin:1px 0 0; color:var(--teal-deep); font-family:inherit; font-size:.94rem; letter-spacing:0; }
+.reflection-plan { display:grid; gap:10px; }
+.reflection-plan>p { margin:0; padding-left:12px; border-left:2px solid rgba(11,105,115,.2); font-size:.9rem; line-height:1.75; }
+.reflection-plan strong { display:block; margin-bottom:2px; color:var(--teal-deep); font-size:.76rem; }
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+.food-period-icon { width:30px; height:30px; }
+.food-period-icon svg { display:block; width:21px; height:21px; stroke-width:2.35; }
+.food-period-day svg { width:22px; height:22px; }
+.route-disclosure { position:relative; }
+.route-disclosure>summary { justify-content:flex-start; gap:8px; padding-right:12px; }
+.route-disclosure>summary h3 { margin:0; }
+.route-disclosure[open]>summary { padding-right:160px; }
+.route-summary-link { display:none; position:absolute; top:15px; right:48px; z-index:2; color:var(--teal-deep); font-size:.76rem; font-weight:800; text-underline-offset:3px; }
+.route-disclosure[open]>.route-summary-link { display:block; }
+.food-disclosure[open]>summary { padding-right:92px; }
+.food-disclosure[open]>summary h3 { padding-right:10px; }
+.move-card-rail p { min-height:0; margin:0 0 7px; }
+.move-card-rail .trip-com-disclaimer { margin:2px 0 7px!important; }
+.move-card-links { display:grid; gap:5px; }
+.move-card-links a { width:fit-content; }
+.site-nav a[href="#reflection"]:focus-visible,.mobile-dock a[href="#reflection"]:focus-visible { outline:2px solid var(--teal); outline-offset:2px; }
+
+/* Fixed-size disclosure indicators swap direction without a shifting rotation. */
+.food-disclosure>summary::before,.route-disclosure>summary::before,.section-disclosure>summary::before { display:grid; flex:none; width:24px; height:28px; place-items:center; margin:0; padding:0; font:1.25rem/1 system-ui,sans-serif; color:var(--teal); }
+.food-disclosure>summary::before,.route-disclosure>summary::before { content:"⌄"; }
+.food-disclosure[open]>summary::before,.route-disclosure[open]>summary::before { content:"⌃"; }
+.section-disclosure>summary::before { content:"⌄"; color:var(--muted); }
+.section-disclosure[open]>summary::before { content:"⌃"; }
+.food-disclosure>summary::after,.route-disclosure>summary::after,.section-disclosure>summary::after,.detail-panel summary::after,.field-card summary::after { content:none!important; }
+.detail-panel summary,.field-card summary { position:relative; padding-right:38px; }
+.detail-panel summary::after,.field-card summary::after { position:absolute; top:50%; right:8px; display:grid; width:28px; height:28px; place-items:center; margin:0; padding:0; content:"⌄"!important; color:var(--muted); font:1.25rem/1 system-ui,sans-serif; transform:translateY(-50%); }
+.detail-panel[open]>summary::after,.field-card[open]>summary::after { content:"⌃"!important; transform:translateY(-50%); }
+.section-disclosure>summary { min-height:40px; }
+.section-disclosure>summary h2 { line-height:1.15; }
+@media (max-width:920px) {
+  .hero-left>.weather-panel { max-width:720px; }
+}
+@media (max-width:680px) {
+  .hero { display:flex; flex-direction:column; }
+  .hero-left { display:contents; }
+  .hero-copy { order:1; }
+  .hero-route { order:2; }
+  .hero-left>.weather-panel { order:3; width:100%; margin-top:-4px; }
+  .hero-title-row { flex-wrap:wrap; align-items:center; gap:8px; }
+  .hero-title-row h1 { flex:1 1 180px; min-width:0; font-size:1.65rem; }
+  .reflection-open { min-height:36px; padding:7px 9px; font-size:.72rem; }
+  .hero-left>.weather-panel { padding:12px 11px 10px; }
+  .hero-left .weather-main { gap:3px; }
+  .hero-left .weather-main strong { font-size:1rem; }
+  .hero-left .weather-main small { font-size:.58rem; }
+  .hero-left .weather-icon { width:22px; height:22px; }
+  .hero-left .weather-icon svg { width:19px; height:19px; }
+  .hero-left .weather-trend-step { width:16px; height:16px; }
+  .hero-left .weather-trend-step svg { width:14px; height:14px; }
+  .reflection-dialog { width:calc(100vw - 16px); height:calc(100dvh - 16px); max-height:calc(100dvh - 16px); padding:14px 12px; border-radius:8px; }
+  .reflection-dialog-header { position:sticky; top:-14px; z-index:1; margin:-14px -12px 10px; padding:12px; background:var(--paper); }
+  .reflection-dialog-header h2 { font-size:1.25rem; }
+  .reflection-card { grid-template-columns:1fr; gap:8px; padding:12px; }
+  .reflection-plan>p { font-size:.85rem; }
+  .route-disclosure[open]>summary { padding-right:8px; }
+  .route-summary-link { position:static; width:fit-content; margin:-2px 0 10px 42px; }
+  .route-disclosure[open]>.route-summary-link { display:block; }
+  .food-disclosure>summary { padding-right:8px; }
+  .food-disclosure[open]>summary { padding-right:82px; }
+  .food-disclosure[open]>summary h3 { padding-right:0; }
+  .move-card-rail .trip-com-disclaimer { margin:2px 0 7px!important; }
 }
 .first-card a { display:inline-block; margin-top:8px; color:var(--teal-deep); font-size:.78rem; font-weight:800; text-underline-offset:3px; }
 .forecast-note { margin:8px 0 0; padding:8px 10px; border-left:2px solid var(--gold); background:rgba(213,158,54,.08); color:var(--muted); font-size:.8rem; line-height:1.6; }

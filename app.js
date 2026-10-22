@@ -26,6 +26,24 @@ window.addEventListener("scroll", () => {
   if (window.scrollY < 80) setCurrent(null);
 }, { passive: true });
 
+const reflectionDialog = document.getElementById("reflection-dialog");
+const reflectionOpeners = [...document.querySelectorAll("[data-open-reflection]")];
+const reflectionClose = reflectionDialog?.querySelector("[data-close-reflection]");
+let lastReflectionOpener = null;
+reflectionOpeners.forEach((opener) => opener.addEventListener("click", (event) => {
+  event.preventDefault();
+  if (!reflectionDialog || reflectionDialog.open) return;
+  lastReflectionOpener = opener;
+  reflectionDialog.showModal();
+  requestAnimationFrame(() => reflectionClose?.focus());
+}));
+reflectionClose?.addEventListener("click", () => reflectionDialog?.close());
+reflectionDialog?.addEventListener("click", (event) => {
+  if (event.target === reflectionDialog) reflectionDialog.close();
+});
+reflectionDialog?.addEventListener("close", () => lastReflectionOpener?.focus());
+window.lucide?.createIcons({ attrs: { "stroke-width": 2.5 } });
+
 const cityTabList = document.querySelector("[data-city-tabs]");
 const cityTabs = [...(cityTabList?.querySelectorAll("[data-city-tab]") || [])];
 const cityPanels = [...(cityTabList?.nextElementSibling?.querySelectorAll("[data-city-panel]") || [])];
