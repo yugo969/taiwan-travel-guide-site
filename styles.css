@@ -351,6 +351,7 @@ a { color:inherit; }
 .section-disclosure>summary::before,.detail-panel>summary::before { color:var(--muted); }
 .detail-panel>summary { gap:10px; padding-right:0; }
 .detail-panel>summary::after { content:none!important; }
+.detail-panel[open]>summary::after { content:none!important; }
 .field-card>summary::after {
   content:""!important;
   top:50%;
